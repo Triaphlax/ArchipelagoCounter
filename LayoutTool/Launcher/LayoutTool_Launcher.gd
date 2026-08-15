@@ -50,15 +50,28 @@ func _on_button_pressed() -> void:
 			
 			"Poptracker":
 				var poptracker_path: String = settings["poptracker_path"]
-				powershell_command([
-					"cd " + poptracker_path.get_base_dir(),
-					".{separator}{poptracker} --no-console --load-pack \"{pack}\" --pack-variant \"{variant}\"".format({
-						"poptracker": poptracker_path.get_file(),
-						"pack": action["pack"],
-						"variant": action["variant"],
-						"separator": "\\" if OS.get_name() == "Windows" else "/"
-					})
-				])
+				var output := []
+				OS.execute(
+					poptracker_path,
+					[
+						"--no-console",
+						"--load-pack",
+						action["pack"],
+						"--pack-variant",
+						action["variant"]
+					],
+					output,
+					true
+				)
+				#powershell_command([
+					#"cd " + poptracker_path.get_base_dir(),
+					#".{separator}{poptracker} --no-console --load-pack \"{pack}\" --pack-variant \"{variant}\"".format({
+						#"poptracker": poptracker_path.get_file(),
+						#"pack": action["pack"],
+						#"variant": action["variant"],
+						#"separator": "\\" if OS.get_name() == "Windows" else "/"
+					#})
+				#])
 			
 			"APFile":
 				# Go to the directory of the file, cd to it, then open the file wit the specified extension
@@ -90,7 +103,18 @@ func powershell_command(commands: Array[String]):
 	match OS.get_name():
 		"Windows":
 			var final_command = ";".join(commands)
-			OS.create_process("powershell.exe", ["-Command", final_command])
+			#OS.create_process("powershell.exe", ["-Command", final_command])
+			var output := []
+			var exit_code = OS.execute(
+				"powershell.exe",
+				["-NoProfile", "-Command", final_command],
+				output,
+				true
+			)
+
+			print("Exit code: ", exit_code)
+			print("Output: ", output)
+			print("Final command: ", final_command)
 		_:
 			var final_command = "&&".join(commands)
 			OS.create_process("bash", ["-c", final_command])
