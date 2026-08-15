@@ -208,10 +208,10 @@ func print_json_update(packet) -> Update:
 
 
 func bounced_update(packet) -> Update:
-	if "DeathLink" in packet["tags"]:
-		var update := Update_DeathLink.new()
-		update.slot = Counter.get_slot_id_from_name(packet["data"]["source"])
-		return update
+	#if "DeathLink" in packet["tags"]:
+		#var update := Update_DeathLink.new()
+		#update.slot = Counter.get_slot_id_from_name(packet["data"]["source"])
+		#return update
 	
 	return null
 
