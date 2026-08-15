@@ -1,0 +1,418 @@
+[gd_scene format=3 uid="uid://bp5nautyh43og"]
+
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_bc1ij"]
+[ext_resource type="PackedScene" uid="uid://87yv50b3rrdn" path="res://LayoutRolf/43LayoutRolf.tscn" id="2_o3djs"]
+[ext_resource type="PackedScene" uid="uid://7hu4sas3mv3v" path="res://Layout2/169Layout.tscn" id="3_a6iq4"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_nnob0"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="5_e0npb"]
+[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="6_f6fu2"]
+[ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="7_m5hja"]
+[ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="8_h2nx2"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="9_m07m5"]
+[ext_resource type="Texture2D" uid="uid://dcxecx4mhdtm0" path="res://OoSEssences/FertileSoil.png" id="10_iy32h"]
+[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="11_eoaqi"]
+[ext_resource type="Texture2D" uid="uid://ddo81lbxkin8f" path="res://OoSEssences/GiftofTime.png" id="12_qpy53"]
+[ext_resource type="Texture2D" uid="uid://eu25w2hl3bx5" path="res://OoSEssences/BrightSun.png" id="13_vf7i6"]
+[ext_resource type="Texture2D" uid="uid://bl21afh8ujfc2" path="res://OoSEssences/SoothingRain.png" id="14_foncw"]
+[ext_resource type="Texture2D" uid="uid://d3kullob2wtjb" path="res://OoSEssences/NurturingWarmth.png" id="15_uhjhy"]
+[ext_resource type="Texture2D" uid="uid://bvyw5icvqhubl" path="res://OoSEssences/BlowingWind.png" id="16_2nrma"]
+[ext_resource type="Texture2D" uid="uid://5c5ulqbw6x4j" path="res://OoSEssences/SeedOfLife.png" id="17_blboj"]
+[ext_resource type="Texture2D" uid="uid://coc5o1t4xpdcg" path="res://OoSEssences/ChangingSeasons.png" id="18_4nn8r"]
+
+[sub_resource type="GDScript" id="GDScript_4yuy2"]
+resource_name = "GameEnabler"
+script/source = "extends Control
+
+@export var main_layout: VBoxContainer
+@export var second_layout: VBoxContainer
+
+func _ready():
+	await Counter.loaded()
+	Counter.broadcast.connect(_on_broadcast)
+
+
+func _on_broadcast(message: String, args: Dictionary):
+	if message != \"Change_Game\":
+		return
+	
+	main_layout.visible = not main_layout.visible
+	second_layout.visible = not second_layout.visible
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_w42q2"]
+font = ExtResource("4_nnob0")
+font_size = 34
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pe2lc"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmvq8"]
+content_margin_left = 14.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+skew = Vector2(0.61, 0)
+expand_margin_right = 35.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nuee"]
+font = ExtResource("4_nnob0")
+font_size = 24
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6k6nc"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_fyud1"]
+font = ExtResource("4_nnob0")
+font_size = 40
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvpvs"]
+content_margin_left = 40.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
+skew = Vector2(0.61, 0)
+expand_margin_right = 51.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbxp3"]
+font = ExtResource("4_nnob0")
+font_size = 28
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whlis"]
+bg_color = Color(0.12941177, 0.14509805, 0.16078432, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r050g"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhgxu"]
+font = ExtResource("4_nnob0")
+font_size = 40
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[node name="Layouts" type="Control" unique_id=1143086715 node_paths=PackedStringArray("main_layout", "second_layout")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bc1ij")
+script = SubResource("GDScript_4yuy2")
+main_layout = NodePath("MainLayout")
+second_layout = NodePath("SecondLayout")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1228981493]
+custom_minimum_size = Vector2(0, 165)
+layout_mode = 0
+offset_bottom = 165.0
+theme_override_constants/separation = 0
+
+[node name="MainLayout" type="VBoxContainer" parent="." unique_id=1676663811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GBLayout2" parent="MainLayout" unique_id=608389510 instance=ExtResource("2_o3djs")]
+layout_mode = 2
+
+[node name="169Layout" parent="MainLayout" unique_id=819431785 instance=ExtResource("3_a6iq4")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout" unique_id=1088098226]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+
+[node name="RunTimer" type="Label" parent="MainLayout/HBoxContainer" unique_id=1899203256]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_w42q2")
+horizontal_alignment = 1
+script = ExtResource("5_e0npb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainLayout" unique_id=261989394]
+custom_minimum_size = Vector2(0, 165)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer2" unique_id=1779311102]
+custom_minimum_size = Vector2(403, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer2/VBoxContainer" unique_id=820727704]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1578382947]
+layout_mode = 2
+text = "Total Checks: 0000/0000"
+label_settings = SubResource("LabelSettings_pe2lc")
+script = ExtResource("6_f6fu2")
+text_format = "Total Checks: {0}/{1}"
+
+[node name="Socials" type="PanelContainer" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1119656918]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_lmvq8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials" unique_id=1923775265]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=352905384]
+layout_mode = 2
+
+[node name="Twitch" type="TextureRect" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=460402704]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("7_m5hja")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Youtube" type="TextureRect" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1359961596]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_h2nx2")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainLayout/HBoxContainer2/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=2090896061]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_5nuee")
+
+[node name="AnimatedLog" parent="MainLayout/HBoxContainer2/VBoxContainer" unique_id=208326658 instance=ExtResource("9_m07m5")]
+layout_mode = 2
+size_flags_vertical = 3
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainLayout" unique_id=852580125]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MainLayout/HBoxContainer3" unique_id=1269350745]
+layout_mode = 2
+
+[node name="AnimatedLog" parent="MainLayout/HBoxContainer3/VBoxContainer2" unique_id=747694369 instance=ExtResource("9_m07m5")]
+custom_minimum_size = Vector2(196, 448)
+layout_mode = 2
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3" unique_id=516720403]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer" unique_id=1131753903]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HFlowContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=772367669]
+custom_minimum_size = Vector2(942, 106)
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=1669590058]
+layout_mode = 2
+
+[node name="TotalChecks" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=987698390]
+layout_mode = 2
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_6k6nc")
+horizontal_alignment = 1
+script = ExtResource("6_f6fu2")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=162134728]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_fyud1")
+horizontal_alignment = 1
+script = ExtResource("5_e0npb")
+
+[node name="Control" type="Control" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=2137668565]
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+
+[node name="Socials" type="PanelContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer" unique_id=34712773]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvpvs")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials" unique_id=1448681113]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=1812097192]
+layout_mode = 2
+
+[node name="Twitch" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1048742765]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("7_m5hja")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Youtube" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1201857218]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_h2nx2")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer/Socials/HBoxContainer" unique_id=1470971016]
+layout_mode = 2
+text = "@SimplyBLG"
+label_settings = SubResource("LabelSettings_mbxp3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer" unique_id=1016273450]
+layout_mode = 2
+
+[node name="AnimatedLog" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2" unique_id=1239975654 instance=ExtResource("9_m07m5")]
+custom_minimum_size = Vector2(538, 417)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_whlis")
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2" unique_id=1647764755]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1860346049]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=283807609]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("10_iy32h")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Fertile Soil"
+
+[node name="TextureRect2" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=808940171]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("12_qpy53")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Gift of Time"
+
+[node name="TextureRect3" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1164724646]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("13_vf7i6")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Bright Sun"
+
+[node name="TextureRect4" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=615233831]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("14_foncw")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Soothing Rain"
+
+[node name="TextureRect5" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1758476128]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("15_uhjhy")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Nurturing Warmth"
+
+[node name="TextureRect6" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1297823365]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("16_2nrma")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Blowing Wind"
+
+[node name="TextureRect7" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1663250366]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("17_blboj")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Seed of Life"
+
+[node name="TextureRect8" type="TextureRect" parent="MainLayout/HBoxContainer3/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" unique_id=1733202184]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("18_4nn8r")
+script = ExtResource("11_eoaqi")
+item_code = "BLGOoS::Changing Seasons"
+
+[node name="SecondLayout" type="VBoxContainer" parent="." unique_id=2093540683]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout" unique_id=1823871306]
+layout_mode = 2
+
+[node name="AnimatedLog" parent="SecondLayout/HBoxContainer" unique_id=912424383 instance=ExtResource("9_m07m5")]
+custom_minimum_size = Vector2(450, 860)
+layout_mode = 2
+message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecondLayout/HBoxContainer" unique_id=2089794906]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer" unique_id=945718998]
+custom_minimum_size = Vector2(0, 183)
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=861327499]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=696663605]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TotalChecks" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=862799243]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_r050g")
+horizontal_alignment = 1
+script = ExtResource("6_f6fu2")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="SecondLayout/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=967787070]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_qhgxu")
+horizontal_alignment = 1
+script = ExtResource("5_e0npb")
