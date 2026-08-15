@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://87yv50b3rrdn"]
+
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_s5skm"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="2_7bytv"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_y2uw4"]
+[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="14_pt1xv"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="15_nkbmd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3s5g"]
+bg_color = Color(0.12941177, 0.14509805, 0.16078432, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vd05n"]
+line_spacing = 0.0
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_hx7vw"]
+font = ExtResource("4_y2uw4")
+font_size = 48
+font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[node name="GBLayout" type="PanelContainer" unique_id=608389510]
+custom_minimum_size = Vector2(722, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 455.0
+grow_vertical = 2
+theme = ExtResource("1_s5skm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3s5g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1642887353]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="AnimatedLog" parent="VBoxContainer" unique_id=208326658 instance=ExtResource("2_7bytv")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1222864113]
+layout_mode = 2
+
+[node name="TotalChecks" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=2036501729]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_vd05n")
+horizontal_alignment = 1
+script = ExtResource("14_pt1xv")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=363917976]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_hx7vw")
+horizontal_alignment = 1
+script = ExtResource("15_nkbmd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1571359389]
+layout_mode = 2
+
+[node name="TotalChecks" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1033136396]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Checks
+0625/1299"
+label_settings = SubResource("LabelSettings_vd05n")
+horizontal_alignment = 1
+script = ExtResource("14_pt1xv")
+text_format = "Total Checks
+{0}/{1}"
+
+[node name="RunTimer" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1859985666]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_hx7vw")
+horizontal_alignment = 1
+script = ExtResource("15_nkbmd")
