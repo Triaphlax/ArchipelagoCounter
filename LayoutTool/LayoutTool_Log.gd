@@ -5,7 +5,7 @@ extends PanelContainer
 @export var print_excluded_locations := false
 @export_multiline var message_template := \
 	"[color=#{timestamp_color}][{timestamp}][/color] [b][color=#{sender_color}]{sender}[/color][/b] sent " + \
-	"[b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] " + \
+	"{bold_tag_start}[color=#{item_color}]{item}[/color]{bold_tag_end} to [b]{receiver}[/b] " + \
 	"[b][color=#{location_color}]({location})[/color][/b]"
 var full_text := ""
 
@@ -31,6 +31,15 @@ func print_item(log_message: LogMessage_Item):
 	var destination_player := Counter.get_player_name_from_id(log_message.receiver_id)
 	var item_name := Counter.get_item_name_from_id(log_message.receiver_id, log_message.item_id)
 	var location_name := Counter.get_location_name_from_id(log_message.sender_id, log_message.location_id)
+	var item_color
+	if log_message.flags == 0: #filler
+		item_color = Counter.settings.log_item_color_filler.to_html()
+	elif log_message.flags == 1: #progression
+		item_color = Counter.settings.log_item_color_prog.to_html()
+	elif log_message.flags == 2: #useful
+		item_color = Counter.settings.log_item_color_useful.to_html()
+	else:
+		item_color = Counter.settings.log_item_color.to_html()
 	
 	var msg := message_template.format(
 		{
@@ -40,10 +49,12 @@ func print_item(log_message: LogMessage_Item):
 			"location": location_name,
 			"sender_color": Counter.get_color_for_slot(source_player).to_html(),
 			"receiver_color": Counter.get_color_for_slot(destination_player).to_html(),
-			"item_color": Counter.settings.log_item_color.to_html(),
+			"item_color": item_color,
 			"location_color": Counter.settings.log_location_color.to_html(),
 			"timestamp_color": Counter.settings.log_timestamp_color.to_html(),
-			"timestamp": Utils.seconds_to_hms(log_message.timestamp)
+			"timestamp": Utils.seconds_to_hms(log_message.timestamp),
+			"bold_tag_start": "[b]" if log_message.flags == 1 else "",
+			"bold_tag_end": "[/b]" if log_message.flags == 1 else ""
 		})
 	
 	full_text += "\n" + msg

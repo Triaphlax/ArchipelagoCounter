@@ -77,7 +77,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_nv66w")
 script = ExtResource("2_l6cfq")
 label = NodePath("RichTextLabel")
-message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
 metadata/_tab_index = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VSplitContainer/TabContainer/Log" unique_id=1437742284]

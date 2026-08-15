@@ -5,7 +5,10 @@ extends Resource
 var games: Dictionary[String, String] = {}
 var conditions: Dictionary = {}
 var log_timestamp_color := Color("ffffff9b")
-var log_item_color := Color("596bff")
+var log_item_color := Color("FFFFFF")
+var log_item_color_filler := Color("00D5FF")
+var log_item_color_prog := Color("E0417E")
+var log_item_color_useful := Color("596bff")
 var log_location_color := Color("00ff00")
 var log_default_slot_color := Color("ff0000")
 var custom_slot_colors: Dictionary[String, Color] = {}
@@ -22,6 +25,9 @@ func _init(data):
 	
 	log_timestamp_color = Color(data["log_colors"]["timestamp"])
 	log_item_color = Color(data["log_colors"]["item"])
+	log_item_color_filler = Color(data["log_colors"]["fill"])
+	log_item_color_prog = Color(data["log_colors"]["prog"])
+	log_item_color_useful = Color(data["log_colors"]["usef"])
 	log_location_color = Color(data["log_colors"]["location"])
 	log_default_slot_color = Color(data["log_colors"]["default_slot"])
 	
