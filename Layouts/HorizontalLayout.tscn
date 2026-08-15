@@ -1,90 +1,12 @@
 [gd_scene format=3 uid="uid://crxdbxcnaodv0"]
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_d0blb"]
-[ext_resource type="Texture2D" uid="uid://b6laauyeouim2" path="res://Marquee/MarqueeSM64.png" id="2_d0blb"]
-[ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="3_d0blb"]
-[ext_resource type="Texture2D" uid="uid://c87n35pymxhm2" path="res://Marquee/MarqueeLADX.png" id="6_lff02"]
-[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="7_5gyct"]
-[ext_resource type="Texture2D" uid="uid://nw414cqbi4pk" path="res://Icons/Instrument.png" id="7_6pfc5"]
-[ext_resource type="Texture2D" uid="uid://bb81n1y6mmqh" path="res://Icons/DX_Ocarina.png" id="8_sbxpw"]
-[ext_resource type="Texture2D" uid="uid://dnyvulxurpsj0" path="res://Icons/DX_Ballad.png" id="9_2vn2c"]
-[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="10_00hcv"]
-[ext_resource type="Texture2D" uid="uid://pg0d6csom7pw" path="res://Marquee/MarqueeOoT.png" id="10_xhb4v"]
-[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="11_7ou5y"]
-[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="12_2e105"]
-[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="13_2ec3k"]
-[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="14_coqhf"]
-[ext_resource type="Texture2D" uid="uid://dup4fugdjfxdh" path="res://Marquee/MarqueeMM.png" id="15_ecpjy"]
-[ext_resource type="Texture2D" uid="uid://d36rbj0k86c57" path="res://Icons/MM_Remains.png" id="16_585p1"]
-[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="16_x1dn2"]
-[ext_resource type="Texture2D" uid="uid://cx7c77agc3xyl" path="res://Icons/MM_Oath.png" id="17_17g8q"]
-[ext_resource type="Texture2D" uid="uid://c6mh06buy8pys" path="res://Marquee/MarqueeLttP.png" id="18_eaxm6"]
-[ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="20_5gyct"]
-[ext_resource type="Texture2D" uid="uid://1egue23xk7gr" path="res://Marquee/MarqueeMinish.png" id="20_jafa6"]
-[ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="22_00hcv"]
-[ext_resource type="Texture2D" uid="uid://2i82c74ucmsu" path="res://Marquee/MarqueeOoS.png" id="23_sjhyx"]
-[ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="24_x1dn2"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="25_1j0uq"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="26_ymnca"]
-[ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="27_7auer"]
-[ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="28_j8pkq"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="29_lff02"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfxsj"]
 draw_center = false
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gq74i"]
-texture = ExtResource("2_d0blb")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j1vxw"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("6_lff02")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ug4y7"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("10_xhb4v")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqsh0"]
-atlas = ExtResource("12_2e105")
-region = Rect2(0, 0, 32, 0)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kourn"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("15_ecpjy")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5nrp"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 8.0
-content_margin_bottom = 6.0
-texture = ExtResource("18_eaxm6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_er7i1"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("20_jafa6")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oohc0"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("23_sjhyx")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldgsc"]
 line_spacing = 0.0
@@ -96,21 +18,6 @@ font_size = 40
 font_color = Color(0.07167991, 0.84, 0.016799983, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxaof"]
-content_margin_left = 20.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
-skew = Vector2(0.61, 0)
-expand_margin_right = 35.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_bxaof"]
-font = ExtResource("25_1j0uq")
-font_size = 28
-shadow_color = Color(0, 0, 0, 0.4627451)
-shadow_offset = Vector2(3, 3)
 
 [node name="HorizontalLayout" type="PanelContainer" unique_id=658748335]
 custom_minimum_size = Vector2(0, 53)
@@ -124,152 +31,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nfxsj")
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1132215090]
 layout_mode = 2
 theme_override_constants/separation = 0
-
-[node name="SM64" type="PanelContainer" parent="HBoxContainer" unique_id=964718652]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_gq74i")
-
-[node name="SM64" parent="HBoxContainer/SM64" unique_id=535599633 instance=ExtResource("3_d0blb")]
-layout_mode = 2
-
-[node name="LADX" type="PanelContainer" parent="HBoxContainer" unique_id=859095311]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_j1vxw")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/LADX" unique_id=30886056]
-layout_mode = 2
-
-[node name="InstrumentIcon" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=1762421898]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("7_6pfc5")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="InstrumentCount" type="Label" parent="HBoxContainer/LADX/HBoxContainer" unique_id=1849102979]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("10_00hcv")
-items = Array[String](["BLGDX::Full Moon Cello", "BLGDX::Conch Horn", "BLGDX::Sea Lily's Bell", "BLGDX::Surf Harp", "BLGDX::Wind Marimba", "BLGDX::Coral Triangle", "BLGDX::Organ of Evening Calm", "BLGDX::Thunder Drum"])
-condition = "BLGDX::Instrument Count"
-
-[node name="DXOcarina" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=489493359]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_sbxpw")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("7_5gyct")
-item_code = "BLGDX::Ocarina"
-
-[node name="DXBallad" type="TextureRect" parent="HBoxContainer/LADX/HBoxContainer" unique_id=1820739771]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("9_2vn2c")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("7_5gyct")
-item_code = "BLGDX::Ballad of the Wind Fish"
-
-[node name="OoT" type="PanelContainer" parent="HBoxContainer" unique_id=2008298179]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_ug4y7")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/OoT" unique_id=1772957169]
-layout_mode = 2
-
-[node name="OoTDungeonRewardIcon" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=1065080775]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("11_7ou5y")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="OoTDungeonRewardCount" type="Label" parent="HBoxContainer/OoT/HBoxContainer" unique_id=1872290518]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("10_00hcv")
-items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
-condition = "BLGOoT::Dungeon Reward Count"
-
-[node name="OoTMagic" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=821655128]
-texture_filter = 1
-layout_mode = 2
-texture = SubResource("AtlasTexture_qqsh0")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("16_x1dn2")
-frames_in_atlas = 3
-item_code = "BLGOoT::Progressive Magic Meter"
-
-[node name="OoTBow" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=930821744]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("13_2ec3k")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("7_5gyct")
-item_code = "BLGOoT::Progressive Bow"
-
-[node name="OoTLightArrow" type="TextureRect" parent="HBoxContainer/OoT/HBoxContainer" unique_id=1137577254]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("14_coqhf")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("7_5gyct")
-item_code = "BLGOoT::Light Arrow"
-
-[node name="MM" type="PanelContainer" parent="HBoxContainer" unique_id=285504850]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_kourn")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MM" unique_id=507909849]
-layout_mode = 2
-
-[node name="MMRemainsIcon" type="TextureRect" parent="HBoxContainer/MM/HBoxContainer" unique_id=1309956478]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("16_585p1")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="MMRemainsCount" type="Label" parent="HBoxContainer/MM/HBoxContainer" unique_id=2091094816]
-layout_mode = 2
-text = "0/3"
-script = ExtResource("10_00hcv")
-items = Array[String](["BLGMM::Odolwa's Remains", "BLGMM::Goht's Remains", "BLGMM::Gyorg's Remains", "BLGMM::Twinmold's Remains"])
-condition = "BLGMM::Remains Count"
-
-[node name="MMOath" type="TextureRect" parent="HBoxContainer/MM/HBoxContainer" unique_id=397074439]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("17_17g8q")
-expand_mode = 2
-stretch_mode = 5
-script = ExtResource("7_5gyct")
-item_code = "BLGMM::Oath to Order"
-
-[node name="ALttP" type="PanelContainer" parent="HBoxContainer" unique_id=1252064188]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_n5nrp")
-
-[node name="ALttP" parent="HBoxContainer/ALttP" unique_id=1054017773 instance=ExtResource("20_5gyct")]
-layout_mode = 2
-
-[node name="MinishCap" type="PanelContainer" parent="HBoxContainer" unique_id=783822152]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_er7i1")
-
-[node name="MinishCap" parent="HBoxContainer/MinishCap" unique_id=1413241670 instance=ExtResource("22_00hcv")]
-layout_mode = 2
-
-[node name="OoS" type="PanelContainer" parent="HBoxContainer" unique_id=583386285]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_oohc0")
-
-[node name="OoS" parent="HBoxContainer/OoS" unique_id=744261680 instance=ExtResource("24_x1dn2")]
-layout_mode = 2
 
 [node name="Margin" type="Control" parent="HBoxContainer" unique_id=1283515466]
 custom_minimum_size = Vector2(6, 0)
@@ -292,33 +53,3 @@ text = "00:00:00"
 label_settings = SubResource("LabelSettings_hxa8q")
 horizontal_alignment = 1
 script = ExtResource("26_ymnca")
-
-[node name="Socials" type="PanelContainer" parent="HBoxContainer" unique_id=1342441314]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bxaof")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Socials" unique_id=198351830]
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Socials/HBoxContainer" unique_id=1250151160]
-layout_mode = 2
-
-[node name="Twitch" type="TextureRect" parent="HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1356926422]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("27_7auer")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Youtube" type="TextureRect" parent="HBoxContainer/Socials/HBoxContainer/VBoxContainer" unique_id=1287740553]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("28_j8pkq")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="HBoxContainer/Socials/HBoxContainer" unique_id=1102323645]
-layout_mode = 2
-text = "@SimplyBLG"
-label_settings = SubResource("LabelSettings_bxaof")

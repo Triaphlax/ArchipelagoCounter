@@ -4,23 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="1_v5ckw"]
 [ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="2_scwvs"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="3_supu3"]
-[ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="4_22sia"]
-[ext_resource type="Texture2D" uid="uid://cuc3ldv36yb1l" path="res://Icons/StarCounter.png" id="5_uugkj"]
-[ext_resource type="Texture2D" uid="uid://chjbar040xlxs" path="res://UI/Mario64Numbers.png" id="6_crynv"]
-[ext_resource type="Texture2D" uid="uid://qcvovsoml1y2" path="res://Icons/Mario64Key.png" id="7_xuha7"]
-[ext_resource type="Script" uid="uid://bgev8be5nunjk" path="res://LayoutTool/StarCounter/LayoutTool_StarCounter.gd" id="8_uugkj"]
-[ext_resource type="Script" uid="uid://bxmtiakkb00gf" path="res://LayoutTool/LayoutTool_Item.gd" id="11_crynv"]
-[ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="11_uugkj"]
-[ext_resource type="Texture2D" uid="uid://mnhelj6xw7dx" path="res://Icons/OoT_Magic.png" id="11_ycvm7"]
-[ext_resource type="Texture2D" uid="uid://c7aucn3b0gw25" path="res://Icons/OoT_Bow.png" id="12_2o4q8"]
-[ext_resource type="Texture2D" uid="uid://cn564ukxoyval" path="res://Icons/OoT_LightArrow.png" id="13_iq11a"]
-[ext_resource type="Script" uid="uid://hi4qcrd2vs53" path="res://LayoutTool/LayoutTool_ItemCounter.gd" id="14_crynv"]
-[ext_resource type="Texture2D" uid="uid://cse15qe7b5y4d" path="res://Icons/OoT_Medallion.png" id="14_fj687"]
-[ext_resource type="Script" uid="uid://cle4fmbfqyo0e" path="res://LayoutTool/LayoutTool_ItemAtlas.gd" id="16_xuha7"]
-[ext_resource type="PackedScene" uid="uid://qs6puj7bsrbb" path="res://Layouts/Game/MM.tscn" id="18_supu3"]
-[ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="19_22sia"]
-[ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="20_uugkj"]
-[ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="21_crynv"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="21_udf5c"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="26_xuha7"]
 
@@ -43,35 +26,6 @@ font_size = 26
 shadow_color = Color(0, 0, 0, 0.7019608)
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plnk0"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("4_22sia")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xuha7"]
-atlas = ExtResource("6_crynv")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ufpgl"]
-atlas = ExtResource("6_crynv")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p4p4c"]
-atlas = ExtResource("6_crynv")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58mps"]
-atlas = ExtResource("11_ycvm7")
-region = Rect2(0, 0, 32, 0)
-
 [sub_resource type="LabelSettings" id="LabelSettings_ldgsc"]
 line_spacing = 0.0
 font_size = 21
@@ -85,8 +39,8 @@ shadow_offset = Vector2(-2, 2)
 
 [node name="MMLayout" type="PanelContainer" unique_id=1612386232]
 custom_minimum_size = Vector2(199, 0)
-offset_right = 199.0
-offset_bottom = 777.0
+offset_right = 1502.0
+offset_bottom = 1145.0
 size_flags_horizontal = 0
 size_flags_vertical = 3
 theme = ExtResource("1_supu3")
@@ -137,74 +91,6 @@ label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SM64" type="PanelContainer" parent="VBoxContainer/VBoxContainer" unique_id=986854019]
-self_modulate = Color(1, 0.8, 0.8, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SM64" unique_id=1063938642]
-layout_mode = 2
-theme_override_constants/separation = 0
-alignment = 1
-
-[node name="StarIcon" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1600427433]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-texture = ExtResource("5_uugkj")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="StarCounter" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=59827017 node_paths=PackedStringArray("star_0", "star_1", "star_2")]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_constants/separation = -20
-script = ExtResource("8_uugkj")
-slot = "BLGSM64"
-star_0 = NodePath("StarNumber0")
-star_1 = NodePath("StarNumber1")
-star_2 = NodePath("StarNumber2")
-
-[node name="StarNumber0" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer/StarCounter" unique_id=256673611]
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = SubResource("AtlasTexture_xuha7")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="StarNumber1" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer/StarCounter" unique_id=1345699906]
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = SubResource("AtlasTexture_ufpgl")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="StarNumber2" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer/StarCounter" unique_id=1744633800]
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = SubResource("AtlasTexture_p4p4c")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Key0" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1821428419]
-custom_minimum_size = Vector2(28, 0)
-layout_mode = 2
-texture = ExtResource("7_xuha7")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("11_crynv")
-item_code = "BLGSM64::Progressive Key"
-
-[node name="Key1" type="TextureRect" parent="VBoxContainer/VBoxContainer/SM64/HBoxContainer" unique_id=1551626107]
-custom_minimum_size = Vector2(28, 0)
-layout_mode = 2
-texture = ExtResource("7_xuha7")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("11_crynv")
-item_code = "BLGSM64::Progressive Key"
-threshold = 2
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=80978757]
 layout_mode = 2
 
@@ -215,16 +101,6 @@ text = "LADX"
 label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="LADX" type="PanelContainer" parent="VBoxContainer/VBoxContainer2" unique_id=102556708]
-self_modulate = Color(0.7879864, 0.8591524, 1, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="LADX" parent="VBoxContainer/VBoxContainer2/LADX" unique_id=1679351992 instance=ExtResource("11_uugkj")]
-layout_mode = 2
-alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer" unique_id=1254478200]
 layout_mode = 2
@@ -237,63 +113,6 @@ label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="OoT" type="PanelContainer" parent="VBoxContainer/VBoxContainer3" unique_id=540353612]
-self_modulate = Color(1, 0.945, 0.89, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer3/OoT" unique_id=257401164]
-layout_mode = 2
-theme_override_constants/separation = -2
-alignment = 1
-
-[node name="OoTMagic" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=2137351545]
-texture_filter = 1
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = SubResource("AtlasTexture_58mps")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("16_xuha7")
-frames_in_atlas = 3
-item_code = "BLGOoT::Progressive Magic Meter"
-
-[node name="OoTBow" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=229848965]
-texture_filter = 1
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = ExtResource("12_2o4q8")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("11_crynv")
-item_code = "BLGOoT::Progressive Bow"
-
-[node name="OoTLightArrow" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=1067117709]
-texture_filter = 1
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = ExtResource("13_iq11a")
-expand_mode = 1
-stretch_mode = 5
-script = ExtResource("11_crynv")
-item_code = "BLGOoT::Light Arrow"
-
-[node name="OoTDungeonRewardIcon" type="TextureRect" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=190621832]
-texture_filter = 1
-custom_minimum_size = Vector2(36, 0)
-layout_mode = 2
-texture = ExtResource("14_fj687")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="OoTDungeonRewardCount" type="Label" parent="VBoxContainer/VBoxContainer3/OoT/HBoxContainer" unique_id=424406908]
-layout_mode = 2
-text = "0/6"
-script = ExtResource("14_crynv")
-items = Array[String](["BLGOoT::Kokiri's Emerald", "BLGOoT::Goron's Ruby", "BLGOoT::Zora's Sapphire", "BLGOoT::Forest Medallion", "BLGOoT::Fire Medallion", "BLGOoT::Water Medallion", "BLGOoT::Shadow Medallion", "BLGOoT::Spirit Medallion", "BLGOoT::Light Medallion"])
-condition = "BLGOoT::Dungeon Reward Count"
-
 [node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer" unique_id=845461004]
 layout_mode = 2
 
@@ -304,16 +123,6 @@ text = "MM"
 label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="MM" type="PanelContainer" parent="VBoxContainer/VBoxContainer4" unique_id=277276180]
-self_modulate = Color(0.986, 0.86, 1, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="MM" parent="VBoxContainer/VBoxContainer4/MM" unique_id=388441856 instance=ExtResource("18_supu3")]
-layout_mode = 2
-alignment = 1
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer" unique_id=1340475737]
 layout_mode = 2
@@ -326,16 +135,6 @@ label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ALttP" type="PanelContainer" parent="VBoxContainer/VBoxContainer5" unique_id=1883782741]
-self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="ALttP" parent="VBoxContainer/VBoxContainer5/ALttP" unique_id=1054017773 instance=ExtResource("19_22sia")]
-layout_mode = 2
-alignment = 1
-
 [node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer" unique_id=1190811905]
 layout_mode = 2
 
@@ -347,16 +146,6 @@ label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MinishCap" type="PanelContainer" parent="VBoxContainer/VBoxContainer6" unique_id=592494044]
-self_modulate = Color(0.82, 1, 0.877, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="MinishCap" parent="VBoxContainer/VBoxContainer6/MinishCap" unique_id=1413241670 instance=ExtResource("20_uugkj")]
-layout_mode = 2
-alignment = 1
-
 [node name="VBoxContainer7" type="VBoxContainer" parent="VBoxContainer" unique_id=1783445323]
 layout_mode = 2
 
@@ -367,15 +156,6 @@ text = "OoS"
 label_settings = SubResource("LabelSettings_gq74i")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="OoS" type="PanelContainer" parent="VBoxContainer/VBoxContainer7" unique_id=1009528782]
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="OoS" parent="VBoxContainer/VBoxContainer7/OoS" unique_id=744261680 instance=ExtResource("21_crynv")]
-layout_mode = 2
-alignment = 1
 
 [node name="TotalChecks" type="Label" parent="VBoxContainer" unique_id=328245919]
 layout_mode = 2

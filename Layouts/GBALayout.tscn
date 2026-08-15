@@ -1,42 +1,13 @@
 [gd_scene format=3 uid="uid://rdlcfo1162nk"]
 
-[ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="1_6b2bu"]
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_umkfj"]
 [ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="2_874mj"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="2_vkw05"]
-[ext_resource type="PackedScene" uid="uid://bupwjdbwh15vf" path="res://Layouts/Game/SM64.tscn" id="5_874mj"]
-[ext_resource type="PackedScene" uid="uid://bmuju0oajlqxb" path="res://Layouts/Game/LADX.tscn" id="6_elv8q"]
-[ext_resource type="PackedScene" uid="uid://2n2xblq2l8j0" path="res://Layouts/Game/OoT.tscn" id="7_43g7n"]
-[ext_resource type="PackedScene" uid="uid://qs6puj7bsrbb" path="res://Layouts/Game/MM.tscn" id="8_umyvg"]
-[ext_resource type="PackedScene" uid="uid://i3v3y8gr8k62" path="res://Layouts/Game/ALttP.tscn" id="9_makpk"]
-[ext_resource type="PackedScene" uid="uid://ctnldj7dktmty" path="res://Layouts/Game/MinishCap.tscn" id="10_rekja"]
-[ext_resource type="PackedScene" uid="uid://tk3tlq3px4k0" path="res://Layouts/Game/OoS.tscn" id="11_6b2bu"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="19_t2gpa"]
-[ext_resource type="Texture2D" uid="uid://dak3ndpe784vl" path="res://Icons/Twitch.png" id="20_3nvr0"]
-[ext_resource type="Texture2D" uid="uid://dnniil0l7k67m" path="res://Icons/Youtube.png" id="21_rl2h3"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="25_fem3p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1vxw"]
 bg_color = Color(0.26666668, 0.22745098, 0.22745098, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_plnk0"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("1_6b2bu")
-texture_margin_left = 8.0
-texture_margin_top = 8.0
-texture_margin_right = 8.0
-texture_margin_bottom = 8.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="LabelSettings" id="LabelSettings_gq74i"]
-font = ExtResource("2_vkw05")
-font_size = 26
-shadow_color = Color(0, 0, 0, 0.7019608)
-shadow_offset = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ldgsc"]
 line_spacing = 0.0
@@ -48,19 +19,6 @@ font_size = 42
 font_color = Color(0.07167991, 0.84, 0.016799983, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gq74i"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-bg_color = Color(0.19215687, 0.61960787, 0.16470589, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_umkfj"]
-font = ExtResource("2_vkw05")
-font_size = 28
-shadow_color = Color(0, 0, 0, 0.4627451)
-shadow_offset = Vector2(3, 3)
 
 [node name="GBALayout" type="PanelContainer" unique_id=304349019]
 custom_minimum_size = Vector2(302, 0)
@@ -79,145 +37,6 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_vertical = 3
 message_template = "[b][color=#{sender_color}]{sender}[/color][/b] sent [b][color=#{item_color}]{item}[/color][/b] to [b][color=#{receiver_color}]{receiver}[/color][/b] [b][color=#{location_color}]({location})[/color][/b]"
-
-[node name="SM64" type="PanelContainer" parent="VBoxContainer" unique_id=899157686]
-self_modulate = Color(1, 0.8, 0.8, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SM64" unique_id=870075107]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/SM64/HBoxContainer" unique_id=1744954228]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SM64"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="SM64" parent="VBoxContainer/SM64/HBoxContainer" unique_id=535599633 instance=ExtResource("5_874mj")]
-layout_mode = 2
-
-[node name="LADX" type="PanelContainer" parent="VBoxContainer" unique_id=390597876]
-self_modulate = Color(0.7879864, 0.8591524, 1, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LADX" unique_id=976322528]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/LADX/HBoxContainer" unique_id=307973183]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "LADX"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="LADX" parent="VBoxContainer/LADX/HBoxContainer" unique_id=1679351992 instance=ExtResource("6_elv8q")]
-layout_mode = 2
-
-[node name="OoT" type="PanelContainer" parent="VBoxContainer" unique_id=1596060036]
-self_modulate = Color(1, 0.945, 0.89, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/OoT" unique_id=733718696]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/OoT/HBoxContainer" unique_id=666920292]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "OoT"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="OoT" parent="VBoxContainer/OoT/HBoxContainer" unique_id=1619894384 instance=ExtResource("7_43g7n")]
-layout_mode = 2
-
-[node name="MM" type="PanelContainer" parent="VBoxContainer" unique_id=473898037]
-self_modulate = Color(0.986, 0.86, 1, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MM" unique_id=1496914113]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/MM/HBoxContainer" unique_id=1461726279]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "MM"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="MM" parent="VBoxContainer/MM/HBoxContainer" unique_id=388441856 instance=ExtResource("8_umyvg")]
-layout_mode = 2
-
-[node name="ALttP" type="PanelContainer" parent="VBoxContainer" unique_id=1105685387]
-self_modulate = Color(0.92941177, 0.9411765, 0.69411767, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ALttP" unique_id=1043522200]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=179117168]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "ALttP"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="ALttP" parent="VBoxContainer/ALttP/HBoxContainer" unique_id=1054017773 instance=ExtResource("9_makpk")]
-layout_mode = 2
-
-[node name="MinishCap" type="PanelContainer" parent="VBoxContainer" unique_id=1941195083]
-self_modulate = Color(0.82, 1, 0.877, 1)
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MinishCap" unique_id=120673608]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=396525704]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "TMC"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="MinishCap" parent="VBoxContainer/MinishCap/HBoxContainer" unique_id=1413241670 instance=ExtResource("10_rekja")]
-layout_mode = 2
-
-[node name="OoS" type="PanelContainer" parent="VBoxContainer" unique_id=1768078066]
-custom_minimum_size = Vector2(0, 53)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_plnk0")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/OoS" unique_id=1587014321]
-layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/OoS/HBoxContainer" unique_id=835966702]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "OoS"
-label_settings = SubResource("LabelSettings_gq74i")
-vertical_alignment = 1
-
-[node name="OoS" parent="VBoxContainer/OoS/HBoxContainer" unique_id=744261680 instance=ExtResource("11_6b2bu")]
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=760488248]
 layout_mode = 2
@@ -240,31 +59,3 @@ text = "00:00:00"
 label_settings = SubResource("LabelSettings_j1vxw")
 horizontal_alignment = 1
 script = ExtResource("19_t2gpa")
-
-[node name="Socials" type="PanelContainer" parent="VBoxContainer" unique_id=1383901037]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_gq74i")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Socials" unique_id=363325210]
-layout_mode = 2
-theme_override_constants/separation = 6
-alignment = 1
-
-[node name="Twitch" type="TextureRect" parent="VBoxContainer/Socials/HBoxContainer" unique_id=1194518593]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("20_3nvr0")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="VBoxContainer/Socials/HBoxContainer" unique_id=656242046]
-layout_mode = 2
-text = "@SimplyBLG"
-label_settings = SubResource("LabelSettings_umkfj")
-
-[node name="Youtube" type="TextureRect" parent="VBoxContainer/Socials/HBoxContainer" unique_id=1086269547]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("21_rl2h3")
-expand_mode = 2
-stretch_mode = 5
