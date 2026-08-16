@@ -50,8 +50,7 @@ func _on_button_pressed() -> void:
 			
 			"Poptracker":
 				var poptracker_path: String = settings["poptracker_path"]
-				var output := []
-				OS.execute(
+				OS.create_process(
 					poptracker_path,
 					[
 						"--no-console",
@@ -59,9 +58,7 @@ func _on_button_pressed() -> void:
 						action["pack"],
 						"--pack-variant",
 						action["variant"]
-					],
-					output,
-					true
+					]
 				)
 				#powershell_command([
 					#"cd " + poptracker_path.get_base_dir(),
