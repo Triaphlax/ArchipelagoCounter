@@ -23,7 +23,7 @@ func _on_broadcast(message: String, args: Dictionary):
 	second_layout.visible = not second_layout.visible
 "
 
-[node name="Layouts" type="Control" unique_id=1143086715 node_paths=PackedStringArray("main_layout", "second_layout")]
+[node name="Layouts" type="Control" unique_id=1143086715]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,8 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_3c2bk")
 script = SubResource("GDScript_4yuy2")
-main_layout = NodePath("")
-second_layout = NodePath("")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1228981493]
 custom_minimum_size = Vector2(0, 165)
