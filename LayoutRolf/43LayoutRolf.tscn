@@ -33,12 +33,12 @@ font_color = Color(0, 0.50980395, 0.79607844, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
 
-[node name="GBLayout" type="PanelContainer" unique_id=608389510]
+[node name="43Layout" type="PanelContainer" unique_id=608389510]
 clip_contents = true
 custom_minimum_size = Vector2(10, 10)
-anchors_preset = 9
+anchors_preset = -1
+anchor_right = 0.333
 anchor_bottom = 1.0
-offset_right = 676.0
 grow_vertical = 2
 theme = ExtResource("1_s5skm")
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3s5g")

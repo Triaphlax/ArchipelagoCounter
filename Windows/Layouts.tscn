@@ -33,12 +33,29 @@ grow_vertical = 2
 theme = ExtResource("1_3c2bk")
 script = SubResource("GDScript_4yuy2")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1228981493]
-custom_minimum_size = Vector2(0, 165)
-layout_mode = 0
-offset_right = 1620.0
-offset_bottom = 1076.0
+[node name="Control" type="Control" parent="." unique_id=513194867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=1228981493]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme_override_constants/separation = 0
 
-[node name="GBLayout2" parent="HBoxContainer2" unique_id=608389510 instance=ExtResource("2_desgu")]
+[node name="43Layout" parent="Control/HBoxContainer" unique_id=608389510 instance=ExtResource("2_desgu")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer" unique_id=561664528]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer" unique_id=415100632]
 layout_mode = 2
