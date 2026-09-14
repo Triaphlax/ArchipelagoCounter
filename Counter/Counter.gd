@@ -26,6 +26,7 @@ var save: Save
 var active_players: Array = []
 
 var checksums := {}
+var playerNames: Array = []
 var players: Array = []
 var slot_data := {}
 # relates game to a lookup table that relates item id to name
@@ -121,6 +122,9 @@ func process_connected(packet):
 	
 	if players == []:
 		players = packet["players"]
+	if playerNames == []:
+		for player in players:
+			playerNames.append(player.alias)
 	
 	slot_data[get_slot_from_id(slot_id)] = packet["slot_data"]
 	

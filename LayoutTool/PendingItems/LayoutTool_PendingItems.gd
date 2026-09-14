@@ -50,8 +50,9 @@ func update_pending_items_list(log_message: LogMessage):
 			return
 		
 		var player_name := Counter.get_player_name_from_id(event.slot)
-		if player_name in pending_items:
-			pending_items.erase(player_name)
+		if event.type == LogMessage_SlotEvent.TYPE.PART:
+			if player_name in pending_items:
+				pending_items.erase(player_name)
 
 
 func generate_grid():

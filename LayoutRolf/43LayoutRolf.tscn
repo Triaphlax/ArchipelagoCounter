@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_s5skm"]
 [ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="2_7bytv"]
-[ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="3_dnulf"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_y2uw4"]
 [ext_resource type="Script" uid="uid://chn0o4excpugo" path="res://LayoutTool/LayoutTool_AdvancedTimer.gd" id="5_ngb4g"]
+[ext_resource type="Script" uid="uid://0l21ip80m8v4" path="res://LayoutTool/LayoutTool_CheckCounterPerGame.gd" id="6_dnulf"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="14_pt1xv"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="15_nkbmd"]
 
@@ -23,7 +23,6 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gjf5r"]
-line_spacing = 0.0
 font_size = 21
 
 [sub_resource type="LabelSettings" id="LabelSettings_hx7vw"]
@@ -75,16 +74,17 @@ script = ExtResource("15_nkbmd")
 [node name="PerGameCounter" type="HBoxContainer" parent="VBoxContainer" unique_id=1222864113]
 layout_mode = 2
 
-[node name="TotalChecks" type="Label" parent="VBoxContainer/PerGameCounter" unique_id=2036501729]
+[node name="ChecksForGame" type="Label" parent="VBoxContainer/PerGameCounter" unique_id=2121544873]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "For Game:
 0625/1299"
 label_settings = SubResource("LabelSettings_gjf5r")
 horizontal_alignment = 2
-script = ExtResource("3_dnulf")
+script = ExtResource("6_dnulf")
 text_format = "For {2}:
 {0}/{1}"
+metadata/_custom_type_script = "uid://0l21ip80m8v4"
 
 [node name="AdvancedTimer" type="Label" parent="VBoxContainer/PerGameCounter" unique_id=363917976]
 layout_mode = 2

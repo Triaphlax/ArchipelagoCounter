@@ -7,17 +7,22 @@
 [node name="Main" type="Node" unique_id=429601805]
 
 [node name="Layouts" parent="." unique_id=1143086715 instance=ExtResource("1_r0du0")]
+offset_left = 6.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = -5.0
 
 [node name="BRB" type="Window" parent="." unique_id=511445117]
 oversampling_override = 1.0
 title = "BRB Screen"
 position = Vector2i(0, 36)
-size = Vector2i(1620, 1080)
+size = Vector2i(2240, 1260)
 unresizable = true
 sharp_corners = true
 maximize_disabled = true
 
 [node name="BRB" parent="BRB" unique_id=1593548968 instance=ExtResource("2_cm0pq")]
+anchors_preset = -1
 
 [node name="APHUD" type="Window" parent="." unique_id=1697202677]
 oversampling_override = 1.0

@@ -1,11 +1,14 @@
 class_name LayoutTool_CompletionIndicator
 extends TextureRect
 
-@export var slot := ""
+var game = ""
 
 func _ready():
 	Counter.update.connect(update)
-
+	
+	
+func setGame(game):
+	game = game
 
 func update():
-	modulate.a = 1.0 if slot in Counter.completed_games else 0.0
+	modulate.a = 1.0 if game in Counter.completed_games else 0.0

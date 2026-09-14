@@ -1,0 +1,538 @@
+[gd_scene format=3 uid="uid://caxcm1wbgn0i3"]
+
+[ext_resource type="Texture2D" uid="uid://c68mmj61blj8v" path="res://Marquee/Marquee_Generic.png" id="1_s36s8"]
+[ext_resource type="Script" uid="uid://duli88kut0d3o" path="res://LayoutTool/LayoutTool_ProgressPanelBox.gd" id="2_bi6dq"]
+[ext_resource type="PackedScene" uid="uid://dmlmc5kt35xlm" path="res://LayoutTool/GameProgress/LayoutTool_ProgressPanel.tscn" id="2_rly04"]
+
+[sub_resource type="GDScript" id="GDScript_kg8op"]
+script/source = "extends HBoxContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ls6rj"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_s36s8")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="GameProgress" type="PanelContainer" unique_id=942384386]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1588948541]
+layout_mode = 2
+script = SubResource("GDScript_kg8op")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1719709974]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Zelda1" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1204428685]
+self_modulate = Color(0.5770087, 0.5770083, 0.57700837, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/Zelda1" unique_id=1460687381 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="ALttP" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1937639602]
+self_modulate = Color(1, 0.51051426, 0.5096041, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/ALttP" unique_id=396586219 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="KSS" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1835209926]
+self_modulate = Color(1, 0.50980395, 0.50980395, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/KSS" unique_id=1892964349 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SM_" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1516027696]
+self_modulate = Color(1, 0.50980395, 0.50980395, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/SM_" unique_id=923954933 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="YI" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1073750940]
+self_modulate = Color(1, 0.50980395, 0.50980395, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/YI" unique_id=1931307211 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="LADX" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=485333419]
+self_modulate = Color(0.60438275, 0.9198592, 0.49884903, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/LADX" unique_id=1518024490 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="BT" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=2008365411]
+self_modulate = Color(0.9449898, 0.81018525, 0.40567198, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/BT" unique_id=2017304309 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="DK64" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=795376394]
+self_modulate = Color(0.94509804, 0.8117647, 0.40392157, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/DK64" unique_id=411983243 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SM64" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=1654688944]
+self_modulate = Color(0.94509804, 0.8117647, 0.40392157, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer/SM64" unique_id=1423106496 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1955176053]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="OoT" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=107562971]
+self_modulate = Color(0.94509804, 0.8117647, 0.40392157, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/OoT" unique_id=1759622390 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="MM" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=212049105]
+self_modulate = Color(0.94509804, 0.8117647, 0.40392157, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/MM" unique_id=634209406 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="WL4" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=2108915616]
+self_modulate = Color(1, 0.39215687, 0.8627451, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/WL4" unique_id=277401972 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SMS" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=1436412140]
+self_modulate = Color(0.47203988, 0.450876, 0.9029221, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/SMS" unique_id=287058817 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SSArcade2" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=831996978]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/SSArcade2" unique_id=108714384 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="LM" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=701807389]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/LM" unique_id=1791339587 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="TTYD" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=88114739]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/TTYD" unique_id=323878939 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="MKDD" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=1888776588]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/MKDD" unique_id=1396161783 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="MP1" type="PanelContainer" parent="HBoxContainer/VBoxContainer2" unique_id=1903430800]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer2/MP1" unique_id=1271315665 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=779214599]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="TWW" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=380397192]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/TWW" unique_id=889314729 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="TP" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=615311202]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/TP" unique_id=852288105 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="KAR" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=384630204]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/KAR" unique_id=1403950107 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="Pikmin2" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=1730049807]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/Pikmin2" unique_id=1615205438 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SSBM" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=1458937593]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/SSBM" unique_id=148369429 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="MonkeyBall" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=1005617784]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/MonkeyBall" unique_id=842963581 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SA2B" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=2037308836]
+self_modulate = Color(0.47058824, 0.4509804, 0.9019608, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/SA2B" unique_id=1203446379 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="Trackmania" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=1646640444]
+self_modulate = Color(0.9863847, 0.6723366, 0.3572067, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/Trackmania" unique_id=443747494 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="osu!" type="PanelContainer" parent="HBoxContainer/VBoxContainer3" unique_id=647458615]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer3/osu!" unique_id=13528968 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer" unique_id=164458195]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="AHiT" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=2125737105]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/AHiT" unique_id=460119086 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="AShortHike" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=1832777411]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/AShortHike" unique_id=892144412 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="Celeste" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=1752578303]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/Celeste" unique_id=1010866190 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="DOOM" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=1881048379]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/DOOM" unique_id=119597 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="HK" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=1208480946]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/HK" unique_id=550354535 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="Minit" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=517179066]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/Minit" unique_id=1628757387 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="SRCW" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=1559298106]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/SRCW" unique_id=2054120022 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="OuterWilds" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=577857218]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/OuterWilds" unique_id=591794819 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="PsychoNts" type="PanelContainer" parent="HBoxContainer/VBoxContainer4" unique_id=771135029]
+self_modulate = Color(0.9882353, 0.67058825, 0.35686275, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer4/PsychoNts" unique_id=914040003 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="HBoxContainer" unique_id=1345681966]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="SotN" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=1503522258]
+self_modulate = Color(0.6750549, 0.82610893, 0.98897725, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/SotN" unique_id=996018388 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="KH1" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=1230536386]
+self_modulate = Color(0.15294118, 0.24313726, 0.5647059, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/KH1" unique_id=714939778 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="KH2" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=1396296954]
+self_modulate = Color(0.15141109, 0.2443851, 0.5636143, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/KH2" unique_id=1736865348 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="K-ON!" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=1935850765]
+self_modulate = Color(0.08916556, 0.5829631, 0.64598656, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/K-ON!" unique_id=1218821011 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="Paint" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=186501624]
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/Paint" unique_id=990578295 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="Jigsaw" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=248295323]
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/Jigsaw" unique_id=56418105 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="PuzzleColl" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=663559862]
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/PuzzleColl" unique_id=1744662323 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="mCUBEv" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=1441362463]
+self_modulate = Color(0.9607843, 0.9607843, 0.9607843, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/mCUBEv" unique_id=1785545876 instance=ExtResource("2_rly04")]
+layout_mode = 2
+
+[node name="APQuest" type="PanelContainer" parent="HBoxContainer/VBoxContainer5" unique_id=1550809300]
+self_modulate = Color(0.96035105, 0.96035105, 0.96035093, 1)
+clip_children = 2
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ls6rj")
+script = ExtResource("2_bi6dq")
+
+[node name="Tint" parent="HBoxContainer/VBoxContainer5/APQuest" unique_id=352861970 instance=ExtResource("2_rly04")]
+layout_mode = 2

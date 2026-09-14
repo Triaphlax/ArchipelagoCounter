@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dmlmc5kt35xlm"]
+
+[ext_resource type="Script" uid="uid://dscv0kwgp7o32" path="res://LayoutTool/LayoutTool_ProgressPanel.gd" id="1_mdj6d"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="2_t5cvu"]
+[ext_resource type="Texture2D" uid="uid://jn3j0id8bpr7" path="res://Icons/Star.png" id="3_hhpsp"]
+[ext_resource type="Script" uid="uid://bb8s8i2lg88hp" path="res://LayoutTool/LayoutTool_CompletionIndicator.gd" id="4_y1lfj"]
+[ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="5_xelor"]
+
+[sub_resource type="Shader" id="Shader_60ajr"]
+code = "shader_type canvas_item;
+render_mode blend_mul;
+
+uniform float progress = 0.5;
+uniform float contrast = 0.5;
+
+void fragment() {
+	if (UV.x > progress) {
+		COLOR.rgb *= contrast;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onfxy"]
+resource_local_to_scene = true
+shader = SubResource("Shader_60ajr")
+shader_parameter/progress = 1.0
+shader_parameter/contrast = 0.7
+
+[sub_resource type="LabelSettings" id="LabelSettings_12wmw"]
+font = ExtResource("2_t5cvu")
+font_size = 26
+shadow_color = Color(0, 0, 0, 0.7019608)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8iov6"]
+font = ExtResource("2_t5cvu")
+
+[node name="Tint" type="MarginContainer" unique_id=1460687381 node_paths=PackedStringArray("color_rect")]
+offset_right = 1014.0
+offset_bottom = 51.0
+theme_override_constants/margin_left = -6
+theme_override_constants/margin_top = -6
+theme_override_constants/margin_right = -6
+theme_override_constants/margin_bottom = -6
+script = ExtResource("1_mdj6d")
+color_rect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=860439534]
+material = SubResource("ShaderMaterial_onfxy")
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=141318352]
+layout_mode = 2
+alignment = 2
+
+[node name="GameName" type="Label" parent="HBoxContainer" unique_id=1044160633]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "[Game name]"
+label_settings = SubResource("LabelSettings_12wmw")
+vertical_alignment = 1
+
+[node name="CompletionIndicator" type="TextureRect" parent="HBoxContainer" unique_id=550252168]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("3_hhpsp")
+expand_mode = 2
+stretch_mode = 5
+script = ExtResource("4_y1lfj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1900462175]
+layout_mode = 2
+size_flags_stretch_ratio = 2.75
+
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/HBoxContainer" unique_id=601748552]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Stats" type="Label" parent="HBoxContainer/HBoxContainer/Stats" unique_id=1757452214]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "012/256 (12.5%)
+04:12:16"
+label_settings = SubResource("LabelSettings_8iov6")
+horizontal_alignment = 1
+script = ExtResource("5_xelor")
+text_format = "{0}/{1} ({2}%)
+{3}"
+
+[node name="Control" type="Control" parent="HBoxContainer/HBoxContainer" unique_id=147840061]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2

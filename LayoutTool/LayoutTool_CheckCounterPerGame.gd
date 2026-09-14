@@ -1,10 +1,11 @@
-class_name LayoutTool_CheckCounterAdvanced
+class_name LayoutTool_CheckCounterPerGame
 extends LayoutTool_CheckCounter
 
 var game := ""
 
 func _ready():
 	Counter.update.connect(update)
+	Counter.active_player_changed.connect(change_game)
 	await Counter.loaded()
 	update()
 
@@ -30,4 +31,14 @@ func update_text(checks: int, total_checks: int):
 	#cpm = cpm.pad_decimals(4)
 	
 	text = text_format.format([checks, total_checks, percent, Utils.seconds_to_hms(Counter.save.timer)])
+
+func change_game(active_players: Array):
+	var player_count = active_players.size()
+	if player_count > 1:
+		game = "Too many games!!!"
+	elif player_count == 0:
+		game = ""
+	else:
+		game = Counter.get_slot_from_id(active_players[0])
+	update()
 		

@@ -14,7 +14,7 @@ static func save_file(file_name: String, data: Dictionary) -> void:
 	var path := OS.get_executable_path().get_base_dir().path_join(file_name)
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file:
-		file.store_string(JSON.stringify(data, "", false))
+		file.store_string(JSON.stringify(data, "\t", true))
 		file.close()
 
 
@@ -53,10 +53,13 @@ func save():
 	var log_data := []
 	for log_message in log:
 		log_data.append(log_message.to_json())
+		
+	for game in game_timer.keys():
+		game_timer[game] = floor(game_timer[game])
 	
 	# Save current timer and timestamp to disk
 	var save_data := {
-		"timer": timer,
+		"timer": floor(timer),
 		"log": log_data,
 		"starting_time": starting_time,
 		"generated_version": version,
