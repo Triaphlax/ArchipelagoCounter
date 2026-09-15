@@ -1,9 +1,15 @@
 class_name LayoutTool_PendingItems
 extends PanelContainer
 
-@export var grid: GridContainer
 @export var panel_style_even: StyleBox
 @export var panel_style_odd: StyleBox
+
+var scroll1: ScrollContainer
+var scroll2: ScrollContainer
+var scroll3: ScrollContainer
+var scroll4: ScrollContainer
+var scrolls: Array
+var rows_that_fit: int
 
 # relates slots to a dictionary relating logical advancement items to their counts, for items that have not yet been used
 var pending_items: Dictionary[String, Dictionary] = {}
@@ -12,12 +18,21 @@ func _ready() -> void:
 	Counter.log.connect(log_received)
 	Counter.update.connect(generate_grid)
 	
+	var hbox = get_node("HBoxContainer")
+	scroll1 = hbox.get_node("ScrollContainer")
+	scroll2 = hbox.get_node("ScrollContainer2")
+	scroll3 = hbox.get_node("ScrollContainer3")
+	scroll4 = hbox.get_node("ScrollContainer4")
+	scrolls = [scroll1, scroll2, scroll3, scroll4]
+	
 	await Counter.loaded()
+	
+	rows_that_fit = floor(scroll1.size.y / 30)
 	
 	for log_entry in Counter.save.log:
 		update_pending_items_list(log_entry)
 	
-	generate_grid()
+	generate_grid(rows_that_fit, scrolls)
 
 
 func log_received(log_message: LogMessage):
@@ -55,11 +70,11 @@ func update_pending_items_list(log_message: LogMessage):
 				pending_items.erase(player_name)
 
 
-func generate_grid():
+func generate_grid(itemsPerScroll: int, scrolls: Array):
+	var count := 0
+	var grid = scrolls[0].get_node("GridContainer")
 	for child in grid.get_children():
 		child.queue_free()
-	
-	var count := 0
 	
 	for player in pending_items.keys():
 		for item in pending_items[player].keys():
@@ -79,3 +94,13 @@ func generate_grid():
 			grid.add_child(count_entry)
 			
 			count += 1
+			
+	#var allGridItems = grid.get_children()
+	#var maxGridItems = len(allGridItems)
+	#var scrollNo = 0
+	#for scroll in scrolls.slice(1):
+		#scrollNo += 1
+		#var extraGrid = scroll.get_node("GridContainer")
+		#for i in range(scrollNo * itemsPerScroll, min((scrollNo+1) * itemsPerScroll, maxGridItems)):
+			#allGridItems[i].reparent(extraGrid, false)
+		

@@ -21,7 +21,7 @@ content_margin_bottom = 2.0
 bg_color = Color(0.16510773, 0.17422089, 0.18333429, 1)
 corner_detail = 1
 
-[node name="PendingItems" type="PanelContainer" unique_id=49771699 node_paths=PackedStringArray("grid")]
+[node name="PendingItems" type="PanelContainer" unique_id=49771699]
 custom_minimum_size = Vector2(450, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,16 +31,58 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_o7bdb")
 script = ExtResource("1_f2hfu")
-grid = NodePath("ScrollContainer/GridContainer")
 panel_style_even = SubResource("StyleBoxFlat_bt7e7")
 panel_style_odd = SubResource("StyleBoxFlat_o6sr8")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=974843273]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=248065932]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=974843273]
 layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
-[node name="GridContainer" type="GridContainer" parent="ScrollContainer" unique_id=1127759964]
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer" unique_id=1127759964]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 15
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="HBoxContainer" unique_id=2084080456]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer2" unique_id=2137905299]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="ScrollContainer3" type="ScrollContainer" parent="HBoxContainer" unique_id=830835027]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer3" unique_id=1429976942]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="ScrollContainer4" type="ScrollContainer" parent="HBoxContainer" unique_id=474639162]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer4" unique_id=99721888]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 0
