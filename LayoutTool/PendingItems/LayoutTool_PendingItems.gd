@@ -8,6 +8,9 @@ extends PanelContainer
 
 var scroll: ScrollContainer
 var rows_that_fit: int
+var last_received_items: Dictionary[String, int] = {}
+var total_items: int = 0
+var items_this_join: int = 0
 
 # relates slots to a dictionary relating logical advancement items to their counts, for items that have not yet been used
 var pending_items: Dictionary[String, Dictionary] = {}
@@ -33,6 +36,8 @@ func log_received(log_message: LogMessage):
 
 func update_pending_items_list(log_message: LogMessage):
 	if log_message is LogMessage_Item:
+		items_this_join += 1
+		total_items += 1
 		var item: LogMessage_Item = log_message
 		if item.flags & 1 == 0: # Not a Logical advancement item
 			return
@@ -41,7 +46,7 @@ func update_pending_items_list(log_message: LogMessage):
 		var item_name := Counter.get_item_name_from_id(item.receiver_id, item.item_id)
 		
 		## Don't count items received by an active player
-		if receiver in Counter.active_players:
+		if item.receiver_id in Counter.active_players:
 			return
 		
 		if receiver not in pending_items:
@@ -50,6 +55,7 @@ func update_pending_items_list(log_message: LogMessage):
 			pending_items[receiver][item_name] = 0
 		
 		pending_items[receiver][item_name] += 1
+		last_received_items[receiver] = total_items
 	
 	elif log_message is LogMessage_SlotEvent:
 		var event: LogMessage_SlotEvent = log_message
@@ -58,8 +64,9 @@ func update_pending_items_list(log_message: LogMessage):
 		
 		var player_name := Counter.get_player_name_from_id(event.slot)
 		if event.type == LogMessage_SlotEvent.TYPE.PART:
-			if player_name in pending_items:
-				pending_items.erase(player_name)
+			if player_name in pending_items and event.slot in Counter.active_players and items_this_join > 0:
+				items_this_join = 0
+				pending_items[player_name] = {}
 
 
 func generate_grid():
@@ -77,7 +84,9 @@ func generate_grid():
 			add_to_grid(player, item, grid, panel_style)
 			count += 1
 	
-	for player in pending_items.keys():
+	var pi_keys = pending_items.keys()
+	pi_keys.sort_custom(func(a, b): return last_received_items[a] > last_received_items[b])
+	for player in pi_keys:
 		if Counter.get_slot_id_from_name(player) in Counter.active_players:
 			continue
 		for item in pending_items[player].keys():
