@@ -5,6 +5,12 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7bdb"]
 bg_color = Color(0.13333334, 0.14117648, 0.14901961, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1pb8"]
+bg_color = Color(0.09019608, 0.16862746, 0.27058825, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfmki"]
+bg_color = Color(0.11764706, 0.21960784, 0.3372549, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt7e7"]
 content_margin_left = 6.0
 content_margin_top = 3.0
@@ -31,6 +37,8 @@ grow_vertical = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_o7bdb")
 script = ExtResource("1_f2hfu")
+panel_style_selected_even = SubResource("StyleBoxFlat_n1pb8")
+panel_style_selected_odd = SubResource("StyleBoxFlat_yfmki")
 panel_style_even = SubResource("StyleBoxFlat_bt7e7")
 panel_style_odd = SubResource("StyleBoxFlat_o6sr8")
 
@@ -49,42 +57,3 @@ size_flags_horizontal = 3
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 15
-
-[node name="ScrollContainer2" type="ScrollContainer" parent="HBoxContainer" unique_id=2084080456]
-visible = false
-layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 4
-
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer2" unique_id=2137905299]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 3
-
-[node name="ScrollContainer3" type="ScrollContainer" parent="HBoxContainer" unique_id=830835027]
-visible = false
-layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 4
-
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer3" unique_id=1429976942]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 3
-
-[node name="ScrollContainer4" type="ScrollContainer" parent="HBoxContainer" unique_id=474639162]
-visible = false
-layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 4
-
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer4" unique_id=99721888]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 3
