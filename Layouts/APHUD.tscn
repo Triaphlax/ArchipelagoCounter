@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dcmu5yfoitxh1" path="res://LayoutTool/Launcher/LayoutTool_Launcher.tscn" id="2_cgymg"]
 [ext_resource type="Script" uid="uid://c4h3oqhvbq7yn" path="res://LayoutTool/LayoutTool_Log.gd" id="2_l6cfq"]
 [ext_resource type="PackedScene" uid="uid://cwkljufepolyx" path="res://LayoutTool/Notes/Container/LayoutTool_Notes_Container.tscn" id="3_nv66w"]
-[ext_resource type="PackedScene" uid="uid://c5empkuku1n2t" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.tscn" id="4_cgymg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv66w"]
 content_margin_left = 6.0
@@ -90,20 +89,11 @@ scroll_following = true
 vertical_alignment = 2
 selection_enabled = true
 
-[node name="Items" type="PanelContainer" parent="VBoxContainer/VSplitContainer/TabContainer" unique_id=901646]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_nv66w")
-metadata/_tab_index = 1
-
-[node name="PendingItems" parent="VBoxContainer/VSplitContainer/TabContainer/Items" unique_id=49771699 instance=ExtResource("4_cgymg")]
-layout_mode = 2
-
 [node name="Dashboard" type="PanelContainer" parent="VBoxContainer/VSplitContainer/TabContainer" unique_id=552491332]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nv66w")
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/VSplitContainer/TabContainer/Dashboard" unique_id=1726478235]
 layout_mode = 2
