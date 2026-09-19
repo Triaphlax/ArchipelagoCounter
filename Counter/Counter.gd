@@ -192,6 +192,7 @@ func update_received(update: Socket.Update):
 		elif up.update_type == Socket.Update_Player.Player_Update_Type.Part:
 			active_players.erase(up.slot)
 			active_player_changed.emit(active_players)
+			flush_save()
 	elif update is Socket.Update_Goal:
 		# Pause timer when goal is completed for a game
 		active_players.erase(update.slot)

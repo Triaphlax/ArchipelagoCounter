@@ -2,6 +2,7 @@ class_name Save
 extends Resource
 
 const FILENAME := "APCounter.json"
+const BU_FILENAME := "Backups/APCounter_{0}.json"
 
 var timer := 0.0
 var log: Array[LogMessage] = []
@@ -67,4 +68,5 @@ func save():
 		"notes": notes
 	}
 	
+	save_file(BU_FILENAME.format([Time.get_datetime_string_from_system().replace(":", "-")]), save_data)
 	save_file(FILENAME, save_data)
