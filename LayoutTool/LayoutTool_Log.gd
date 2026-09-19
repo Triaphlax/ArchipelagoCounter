@@ -4,7 +4,7 @@ extends PanelContainer
 @export var label: RichTextLabel
 @export var print_excluded_locations := false
 @export_multiline var message_template := \
-	"[color=#{timestamp_color}][{timestamp}][/color] [b][color=#{sender_color}]{sender}[/color][/b] sent " + \
+	"[b][color=#{sender_color}]{sender}[/color][/b] sent " + \
 	"{bold_tag_start}[color=#{item_color}]{item}[/color]{bold_tag_end} to [b]{receiver}[/b] " + \
 	"[b][color=#{location_color}]({location})[/color][/b]"
 var full_text := ""

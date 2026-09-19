@@ -53,6 +53,10 @@ layout_mode = 2
 layout_mode = 2
 alignment = 2
 
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=1342803809]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+
 [node name="GameName" type="Label" parent="HBoxContainer" unique_id=1044160633]
 layout_mode = 2
 size_flags_horizontal = 0

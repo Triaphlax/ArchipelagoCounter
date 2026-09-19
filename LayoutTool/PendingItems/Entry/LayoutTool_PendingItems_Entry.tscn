@@ -9,7 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_8g1gf"]
 resource_local_to_scene = true
 font = ExtResource("1_a7tnh")
-font_size = 20
+font_size = 18
 
 [node name="Entry" type="PanelContainer" unique_id=1286684295 node_paths=PackedStringArray("label")]
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gka7x")
