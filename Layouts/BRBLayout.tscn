@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5empkuku1n2t" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.tscn" id="4_3d06i"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_gccbt"]
 [ext_resource type="PackedScene" uid="uid://caxcm1wbgn0i3" path="res://LayoutTool/GameProgress/LayoutTool_GameProgress.tscn" id="6_wfqdp"]
+[ext_resource type="Script" uid="uid://bhmo5b5dm0x52" path="res://LayoutTool_TooManyConnections.gd" id="11_ecm3m"]
 [ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="13_eqmnl"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="21_1kbda"]
 [ext_resource type="Texture2D" uid="uid://d0gdsh0kp33f8" path="res://Confetti.png" id="23_4vrqj"]
@@ -60,6 +61,12 @@ hue_variation_max = 0.99999994
 anim_speed_min = 30.0
 anim_speed_max = 50.0
 anim_offset_max = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfqdp"]
+font_size = 170
+font_color = Color(0.8092409, 0, 0.12421868, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="BRBLayout" type="PanelContainer" unique_id=1593548968]
 anchors_preset = 15
@@ -160,3 +167,13 @@ lifetime = 8.0
 visibility_rect = Rect2(-960, 64, 1920, 1080)
 process_material = SubResource("ParticleProcessMaterial_fsmhk")
 script = ExtResource("24_k6vjj")
+
+[node name="TooManyConnections" type="Label" parent="." unique_id=1325904363]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+text = "TOO MANY CONNECTIONS"
+label_settings = SubResource("LabelSettings_wfqdp")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_ecm3m")

@@ -6,6 +6,8 @@ signal log(log_message: LogMessage)
 signal load_complete
 signal pre_save
 signal active_player_changed(active_players: Array)
+signal too_many_connections(active_players: Array)
+signal normal_connections_again(active_players: Array)
 ## Signal bus equivalent
 signal broadcast(message: String, args: Dictionary)
 
@@ -188,9 +190,15 @@ func update_received(update: Socket.Update):
 		var up := update as Socket.Update_Player
 		if up.update_type == Socket.Update_Player.Player_Update_Type.Join:
 			active_players.append(up.slot)
+			if len(active_players) > 1:
+				too_many_connections.emit()
+				return
 			active_player_changed.emit(active_players)
 		elif up.update_type == Socket.Update_Player.Player_Update_Type.Part:
 			active_players.erase(up.slot)
+			if len(active_players) == 1:
+				normal_connections_again.emit()
+				return
 			active_player_changed.emit(active_players)
 			flush_save()
 	elif update is Socket.Update_Goal:

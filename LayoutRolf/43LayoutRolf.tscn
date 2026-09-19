@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_y2uw4"]
 [ext_resource type="Script" uid="uid://chn0o4excpugo" path="res://LayoutTool/LayoutTool_AdvancedTimer.gd" id="5_ngb4g"]
 [ext_resource type="Script" uid="uid://0l21ip80m8v4" path="res://LayoutTool/LayoutTool_CheckCounterPerGame.gd" id="6_dnulf"]
+[ext_resource type="Script" uid="uid://bhmo5b5dm0x52" path="res://LayoutTool_TooManyConnections.gd" id="8_gjf5r"]
 [ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="14_pt1xv"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="15_nkbmd"]
 
@@ -31,6 +32,12 @@ font_size = 39
 font_color = Color(0, 0.50980395, 0.79607844, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxr8d"]
+font_size = 60
+font_color = Color(0.8092409, 0, 0.12421868, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="43Layout" type="PanelContainer" unique_id=608389510]
 clip_contents = true
@@ -93,3 +100,12 @@ text = "00:00:00"
 label_settings = SubResource("LabelSettings_hx7vw")
 horizontal_alignment = 1
 script = ExtResource("5_ngb4g")
+
+[node name="TooManyConnections" type="Label" parent="." unique_id=1491637493]
+visible = false
+layout_mode = 2
+text = "TOO MANY CONNECTIONS"
+label_settings = SubResource("LabelSettings_mxr8d")
+horizontal_alignment = 1
+vertical_alignment = 3
+script = ExtResource("8_gjf5r")
