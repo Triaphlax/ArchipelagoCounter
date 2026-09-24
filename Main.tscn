@@ -2,15 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://b5pq5s6sjp6dq" path="res://Windows/Layouts.tscn" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://djcsplm4eogjs" path="res://Layouts/BRBLayout.tscn" id="2_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://6n8h45r6v6e5" path="res://LayoutRolf/169LayoutRolf.tscn" id="2_fos0i"]
+[ext_resource type="PackedScene" uid="uid://87yv50b3rrdn" path="res://LayoutRolf/43LayoutRolf.tscn" id="3_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://bsr72ukrumsof" path="res://Layouts/APHUD.tscn" id="3_fos0i"]
 
 [node name="Main" type="Node" unique_id=429601805]
 
 [node name="Layouts" parent="." unique_id=1143086715 instance=ExtResource("1_r0du0")]
+visible = false
 offset_left = 6.0
 offset_top = -5.0
 offset_right = 6.0
 offset_bottom = -5.0
+
+[node name="169" type="Window" parent="." unique_id=1587904964]
+oversampling_override = 1.0
+title = "169Layout"
+position = Vector2i(0, 36)
+size = Vector2i(2240, 1260)
+
+[node name="169Layout" parent="169" unique_id=608389510 instance=ExtResource("2_fos0i")]
+custom_minimum_size = Vector2(0, 0)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="43" type="Window" parent="." unique_id=730827476]
+oversampling_override = 1.0
+title = "43Layout"
+position = Vector2i(0, 36)
+size = Vector2i(2240, 1260)
+
+[node name="43Layout" parent="43" unique_id=885708928 instance=ExtResource("3_3dxm6")]
+clip_contents = false
+custom_minimum_size = Vector2(0, 0)
+anchor_right = 1.0
+offset_right = 0.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="BRB" type="Window" parent="." unique_id=511445117]
 oversampling_override = 1.0

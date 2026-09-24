@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://6n8h45r6v6e5"]
+
+[ext_resource type="Theme" uid="uid://0p5lyyma5qpk" path="res://UI/Theme.tres" id="1_1qwco"]
+[ext_resource type="PackedScene" uid="uid://b8rftv0nbneoi" path="res://LayoutTool/AnimatedLog/LayoutTool_AnimatedLog.tscn" id="1_sh5xq"]
+[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="3_nboj3"]
+[ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_w08tp"]
+[ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="5_cw2s3"]
+[ext_resource type="Script" uid="uid://0l21ip80m8v4" path="res://LayoutTool/LayoutTool_CheckCounterPerGame.gd" id="6_cu6bq"]
+[ext_resource type="Script" uid="uid://chn0o4excpugo" path="res://LayoutTool/LayoutTool_AdvancedTimer.gd" id="7_rgvfw"]
+[ext_resource type="Script" uid="uid://bhmo5b5dm0x52" path="res://LayoutTool_TooManyConnections.gd" id="8_5smc4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3s5g"]
+bg_color = Color(0.12941177, 0.14509805, 0.16078432, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxr8d"]
+font_size = 60
+font_color = Color(0.8092409, 0, 0.12421868, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qwco"]
+bg_color = Color(8.4228816e-08, 0.059730954, 0.10175117, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vd05n"]
+line_spacing = 0.0
+font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_dnulf"]
+font = ExtResource("4_w08tp")
+font_size = 48
+font_color = Color(0, 0.8392157, 0.015686275, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gjf5r"]
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_hx7vw"]
+font = ExtResource("4_w08tp")
+font_size = 39
+font_color = Color(0, 0.50980395, 0.79607844, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[node name="169Layout" type="PanelContainer" unique_id=608389510]
+clip_contents = true
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1qwco")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r3s5g")
+
+[node name="TooManyConnections" type="Label" parent="." unique_id=1491637493]
+visible = false
+layout_mode = 2
+text = "TOO MANY CONNECTIONS"
+label_settings = SubResource("LabelSettings_mxr8d")
+horizontal_alignment = 1
+vertical_alignment = 3
+script = ExtResource("8_5smc4")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=899335719]
+layout_mode = 2
+
+[node name="TopHalf" type="HBoxContainer" parent="VBoxContainer2" unique_id=1277641748]
+custom_minimum_size = Vector2(0, 1035)
+layout_mode = 2
+
+[node name="Log" type="VBoxContainer" parent="VBoxContainer2/TopHalf" unique_id=785540887]
+clip_contents = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="AnimatedLog" parent="VBoxContainer2/TopHalf/Log" unique_id=208326658 instance=ExtResource("1_sh5xq")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer2/TopHalf" unique_id=195460058]
+custom_minimum_size = Vector2(1840, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1qwco")
+
+[node name="BottomHalf" type="HBoxContainer" parent="VBoxContainer2" unique_id=480079489]
+custom_minimum_size = Vector2(0, 225)
+layout_mode = 2
+
+[node name="Padding" type="VBoxContainer" parent="VBoxContainer2/BottomHalf" unique_id=2020243085]
+custom_minimum_size = Vector2(1800, 0)
+layout_mode = 2
+
+[node name="Stats" type="VBoxContainer" parent="VBoxContainer2/BottomHalf" unique_id=1642887353]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="GlobalCounters" type="HBoxContainer" parent="VBoxContainer2/BottomHalf/Stats" unique_id=1571359389]
+layout_mode = 2
+
+[node name="TotalChecks" type="Label" parent="VBoxContainer2/BottomHalf/Stats/GlobalCounters" unique_id=1033136396]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0625/1299"
+label_settings = SubResource("LabelSettings_vd05n")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_nboj3")
+
+[node name="RunTimer" type="Label" parent="VBoxContainer2/BottomHalf/Stats/GlobalCounters" unique_id=1859985666]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_dnulf")
+horizontal_alignment = 1
+script = ExtResource("5_cw2s3")
+
+[node name="PerGameCounter" type="HBoxContainer" parent="VBoxContainer2/BottomHalf/Stats" unique_id=1222864113]
+layout_mode = 2
+
+[node name="ChecksForGame" type="Label" parent="VBoxContainer2/BottomHalf/Stats/PerGameCounter" unique_id=2121544873]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "For Game:
+0625/1299"
+label_settings = SubResource("LabelSettings_gjf5r")
+horizontal_alignment = 2
+script = ExtResource("6_cu6bq")
+text_format = "For {2}:
+{0}/{1}"
+metadata/_custom_type_script = "uid://0l21ip80m8v4"
+
+[node name="AdvancedTimer" type="Label" parent="VBoxContainer2/BottomHalf/Stats/PerGameCounter" unique_id=363917976]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_hx7vw")
+horizontal_alignment = 1
+script = ExtResource("7_rgvfw")

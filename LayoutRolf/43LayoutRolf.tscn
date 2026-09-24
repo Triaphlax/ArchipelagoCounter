@@ -12,6 +12,12 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3s5g"]
 bg_color = Color(0.12941177, 0.14509805, 0.16078432, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_mxr8d"]
+font_size = 60
+font_color = Color(0.8092409, 0, 0.12421868, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_vd05n"]
 line_spacing = 0.0
 font_size = 29
@@ -33,11 +39,8 @@ font_color = Color(0, 0.50980395, 0.79607844, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
 
-[sub_resource type="LabelSettings" id="LabelSettings_mxr8d"]
-font_size = 60
-font_color = Color(0.8092409, 0, 0.12421868, 1)
-shadow_size = 13
-shadow_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gjf5r"]
+bg_color = Color(0, 0.05882353, 0.101960786, 1)
 
 [node name="43Layout" type="PanelContainer" unique_id=608389510]
 clip_contents = true
@@ -45,23 +48,36 @@ custom_minimum_size = Vector2(10, 10)
 anchors_preset = -1
 anchor_right = 0.333
 anchor_bottom = 1.0
+offset_right = 1494.0801
 grow_vertical = 2
 theme = ExtResource("1_s5skm")
 theme_override_styles/panel = SubResource("StyleBoxFlat_r3s5g")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1642887353]
-custom_minimum_size = Vector2(10, 10)
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1973583197]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1642887353]
+custom_minimum_size = Vector2(560, 10)
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="AnimatedLog" parent="VBoxContainer" unique_id=208326658 instance=ExtResource("2_7bytv")]
+[node name="TooManyConnections" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1491637493]
+visible = false
+layout_mode = 2
+text = "TOO MANY CONNECTIONS"
+label_settings = SubResource("LabelSettings_mxr8d")
+horizontal_alignment = 1
+vertical_alignment = 3
+script = ExtResource("8_gjf5r")
+
+[node name="AnimatedLog" parent="HBoxContainer/VBoxContainer" unique_id=208326658 instance=ExtResource("2_7bytv")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GlobalCounters" type="HBoxContainer" parent="VBoxContainer" unique_id=1571359389]
+[node name="GlobalCounters" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1571359389]
 layout_mode = 2
 
-[node name="TotalChecks" type="Label" parent="VBoxContainer/GlobalCounters" unique_id=1033136396]
+[node name="TotalChecks" type="Label" parent="HBoxContainer/VBoxContainer/GlobalCounters" unique_id=1033136396]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0625/1299"
@@ -70,7 +86,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("14_pt1xv")
 
-[node name="RunTimer" type="Label" parent="VBoxContainer/GlobalCounters" unique_id=1859985666]
+[node name="RunTimer" type="Label" parent="HBoxContainer/VBoxContainer/GlobalCounters" unique_id=1859985666]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "00:00:00"
@@ -78,10 +94,10 @@ label_settings = SubResource("LabelSettings_dnulf")
 horizontal_alignment = 1
 script = ExtResource("15_nkbmd")
 
-[node name="PerGameCounter" type="HBoxContainer" parent="VBoxContainer" unique_id=1222864113]
+[node name="PerGameCounter" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1222864113]
 layout_mode = 2
 
-[node name="ChecksForGame" type="Label" parent="VBoxContainer/PerGameCounter" unique_id=2121544873]
+[node name="ChecksForGame" type="Label" parent="HBoxContainer/VBoxContainer/PerGameCounter" unique_id=2121544873]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "For Game:
@@ -93,7 +109,7 @@ text_format = "For {2}:
 {0}/{1}"
 metadata/_custom_type_script = "uid://0l21ip80m8v4"
 
-[node name="AdvancedTimer" type="Label" parent="VBoxContainer/PerGameCounter" unique_id=363917976]
+[node name="AdvancedTimer" type="Label" parent="HBoxContainer/VBoxContainer/PerGameCounter" unique_id=363917976]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "00:00:00"
@@ -101,11 +117,7 @@ label_settings = SubResource("LabelSettings_hx7vw")
 horizontal_alignment = 1
 script = ExtResource("5_ngb4g")
 
-[node name="TooManyConnections" type="Label" parent="." unique_id=1491637493]
-visible = false
+[node name="Game" type="Panel" parent="HBoxContainer" unique_id=371361774]
+custom_minimum_size = Vector2(1680, 0)
 layout_mode = 2
-text = "TOO MANY CONNECTIONS"
-label_settings = SubResource("LabelSettings_mxr8d")
-horizontal_alignment = 1
-vertical_alignment = 3
-script = ExtResource("8_gjf5r")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gjf5r")
