@@ -74,6 +74,10 @@ script = ExtResource("8_gjf5r")
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Padding" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1711293847]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
 [node name="GlobalCounters" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1571359389]
 layout_mode = 2
 
@@ -116,6 +120,10 @@ text = "00:00:00"
 label_settings = SubResource("LabelSettings_hx7vw")
 horizontal_alignment = 1
 script = ExtResource("5_ngb4g")
+
+[node name="Padding2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=14554856]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="Game" type="Panel" parent="HBoxContainer" unique_id=371361774]
 custom_minimum_size = Vector2(1680, 0)
