@@ -30,7 +30,7 @@ func update_text(checks: int, total_checks: int):
 	#var cpm := str(60.0 * (float(checks) / Counter.save.timer))
 	#cpm = cpm.pad_decimals(4)
 	
-	text = text_format.format([checks, total_checks, percent, Utils.seconds_to_hms(Counter.save.timer)])
+	text = text_format.format([checks, total_checks, game])
 
 func change_game(active_players: Array):
 	var player_count = active_players.size()
