@@ -44,7 +44,6 @@ shadow_offset = Vector2(-2, 2)
 
 [node name="169Layout" type="PanelContainer" unique_id=608389510]
 clip_contents = true
-custom_minimum_size = Vector2(10, 10)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -62,49 +61,48 @@ horizontal_alignment = 1
 vertical_alignment = 3
 script = ExtResource("8_5smc4")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=899335719]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1014653588]
 layout_mode = 2
 
-[node name="TopHalf" type="HBoxContainer" parent="VBoxContainer2" unique_id=1277641748]
-custom_minimum_size = Vector2(0, 1035)
+[node name="Log" type="VBoxContainer" parent="HBoxContainer" unique_id=75163435]
+custom_minimum_size = Vector2(355, 0)
 layout_mode = 2
 
-[node name="Log" type="VBoxContainer" parent="VBoxContainer2/TopHalf" unique_id=785540887]
-clip_contents = true
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-
-[node name="AnimatedLog" parent="VBoxContainer2/TopHalf/Log" unique_id=208326658 instance=ExtResource("1_sh5xq")]
+[node name="AnimatedLog" parent="HBoxContainer/Log" unique_id=208326658 instance=ExtResource("1_sh5xq")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="VBoxContainer2/TopHalf" unique_id=195460058]
-custom_minimum_size = Vector2(1840, 0)
+[node name="Game+Timer" type="VBoxContainer" parent="HBoxContainer" unique_id=1801026429]
+custom_minimum_size = Vector2(1885, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Game+Timer" unique_id=195460058]
+custom_minimum_size = Vector2(1885, 1060)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1qwco")
 
-[node name="BottomHalf" type="HBoxContainer" parent="VBoxContainer2" unique_id=480079489]
-custom_minimum_size = Vector2(0, 225)
+[node name="BottomHalf" type="HBoxContainer" parent="HBoxContainer/Game+Timer" unique_id=480079489]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="Padding" type="VBoxContainer" parent="VBoxContainer2/BottomHalf" unique_id=2020243085]
-custom_minimum_size = Vector2(1710, 0)
+[node name="TrackerSpace" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf" unique_id=2020243085]
+custom_minimum_size = Vector2(1355, 0)
 layout_mode = 2
 
-[node name="Stats" type="VBoxContainer" parent="VBoxContainer2/BottomHalf" unique_id=1642887353]
+[node name="Stats" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf" unique_id=1642887353]
 custom_minimum_size = Vector2(500, 10)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/BottomHalf/Stats" unique_id=1364235708]
+[node name="VPadding" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf/Stats" unique_id=1364235708]
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 
-[node name="GlobalCounters" type="HBoxContainer" parent="VBoxContainer2/BottomHalf/Stats" unique_id=1571359389]
+[node name="GlobalCounters" type="HBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf/Stats" unique_id=1571359389]
 layout_mode = 2
 
-[node name="TotalChecks" type="Label" parent="VBoxContainer2/BottomHalf/Stats/GlobalCounters" unique_id=1033136396]
+[node name="TotalChecks" type="Label" parent="HBoxContainer/Game+Timer/BottomHalf/Stats/GlobalCounters" unique_id=1033136396]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0625/1299"
@@ -113,7 +111,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_nboj3")
 
-[node name="RunTimer" type="Label" parent="VBoxContainer2/BottomHalf/Stats/GlobalCounters" unique_id=1859985666]
+[node name="RunTimer" type="Label" parent="HBoxContainer/Game+Timer/BottomHalf/Stats/GlobalCounters" unique_id=1859985666]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "00:00:00"
@@ -121,10 +119,10 @@ label_settings = SubResource("LabelSettings_dnulf")
 horizontal_alignment = 1
 script = ExtResource("5_cw2s3")
 
-[node name="PerGameCounter" type="HBoxContainer" parent="VBoxContainer2/BottomHalf/Stats" unique_id=1222864113]
+[node name="PerGameCounter" type="HBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf/Stats" unique_id=1222864113]
 layout_mode = 2
 
-[node name="ChecksForGame" type="Label" parent="VBoxContainer2/BottomHalf/Stats/PerGameCounter" unique_id=2121544873]
+[node name="ChecksForGame" type="Label" parent="HBoxContainer/Game+Timer/BottomHalf/Stats/PerGameCounter" unique_id=2121544873]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "For Game:
@@ -136,7 +134,7 @@ text_format = "For {2}:
 {0}/{1}"
 metadata/_custom_type_script = "uid://0l21ip80m8v4"
 
-[node name="AdvancedTimer" type="Label" parent="VBoxContainer2/BottomHalf/Stats/PerGameCounter" unique_id=363917976]
+[node name="AdvancedTimer" type="Label" parent="HBoxContainer/Game+Timer/BottomHalf/Stats/PerGameCounter" unique_id=363917976]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "00:00:00"
@@ -144,10 +142,9 @@ label_settings = SubResource("LabelSettings_hx7vw")
 horizontal_alignment = 1
 script = ExtResource("7_rgvfw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/BottomHalf/Stats" unique_id=2131174729]
-custom_minimum_size = Vector2(0, 44)
+[node name="VPadding2" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf/Stats" unique_id=2131174729]
 layout_mode = 2
 
-[node name="Padding2" type="VBoxContainer" parent="VBoxContainer2/BottomHalf" unique_id=830989174]
+[node name="EndPadding" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf" unique_id=830989174]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
