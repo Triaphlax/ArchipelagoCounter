@@ -11,7 +11,7 @@ var rows_that_fit: int
 var last_received_items: Dictionary[String, int] = {}
 var total_items: int = 0
 var items_this_join: int = 0
-var current_player_by_log: String
+var current_players: Array = []
 var width_default_pending: int = 1676
 
 # relates slots to a dictionary relating logical advancement items to their counts, for items that have not yet been used
@@ -48,7 +48,7 @@ func update_pending_items_list(log_message: LogMessage):
 		var item_name := Counter.get_item_name_from_id(item.receiver_id, item.item_id)
 		
 		## Don't count items received by an active player
-		if item.receiver_id in Counter.active_players or receiver == current_player_by_log:
+		if item.receiver_id in Counter.active_players or receiver in current_players:
 			return
 		
 		if receiver not in pending_items:
@@ -66,12 +66,12 @@ func update_pending_items_list(log_message: LogMessage):
 		
 		var player_name := Counter.get_player_name_from_id(event.slot)
 		if event.type == LogMessage_SlotEvent.TYPE.JOIN:
-			current_player_by_log = player_name
+			current_players.append(player_name)
 		if event.type == LogMessage_SlotEvent.TYPE.PART:
-			current_player_by_log = ""
-			if player_name in pending_items and event.slot in Counter.active_players and items_this_join > 0:
+			if player_name in pending_items and player_name in current_players and items_this_join > 0:
 				items_this_join = 0
 				pending_items[player_name] = {}
+			current_players.erase(player_name)
 
 
 func generate_grid():
