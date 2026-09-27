@@ -146,6 +146,9 @@ func process_connected(packet):
 
 
 func is_location_excluded(slot_id: int, location_id: int) -> bool:
+	if location_id == -1:
+		return true
+	
 	var game_name := get_game_from_slot(slot_id)
 	var excluded_locations := settings.get_excluded_locations_for_game(game_name)
 	
