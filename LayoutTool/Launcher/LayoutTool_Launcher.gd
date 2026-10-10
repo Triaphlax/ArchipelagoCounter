@@ -101,13 +101,10 @@ func powershell_command(commands: Array[String]):
 	match OS.get_name():
 		"Windows":
 			var final_command = ";".join(commands)
-			#OS.create_process("powershell.exe", ["-Command", final_command])
 			var output := []
-			var exit_code = OS.execute(
+			var exit_code = OS.create_process(
 				"powershell.exe",
 				["-NoProfile", "-Command", final_command],
-				output,
-				true
 			)
 
 			print("Exit code: ", exit_code)
