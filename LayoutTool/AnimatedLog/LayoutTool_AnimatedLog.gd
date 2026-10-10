@@ -6,9 +6,10 @@ extends PanelContainer
 @export var scroll_container: ScrollContainer
 
 @export var print_excluded_locations := false
+@export var use_multiline := false
 @export_multiline var message_template := \
-	"[color=#{timestamp_color}][{timestamp}][/color] [b][color=#{sender_color}]{sender}[/color][/b] sent " + \
-	"{bold_tag_start}[color=#{item_color}]{item}[/color]{bold_tag_end} to [b]{receiver}[/b] " + \
+	"[color=#{timestamp_color}][{timestamp}][/color]{multiline}[b][color=#{sender_color}]{sender}[/color][/b] sent " + \
+	"{bold_tag_start}[color=#{item_color}]{item}[/color]{bold_tag_end} to [b]{receiver}[/b]{multiline}" + \
 	"[b][color=#{location_color}]({location})[/color][/b]"
 
 var text_queue: Array[String] = []
@@ -100,7 +101,8 @@ func print_item(log_message: LogMessage_Item):
 			"timestamp_color": Counter.settings.log_timestamp_color.to_html(),
 			"timestamp": Utils.seconds_to_hms(log_message.timestamp),
 			"bold_tag_start": "[b]" if log_message.flags == 1 else "",
-			"bold_tag_end": "[/b]" if log_message.flags == 1 else ""
+			"bold_tag_end": "[/b]" if log_message.flags == 1 else "",
+			"multiline": "\n" if use_multiline else " "
 		})
 	text_queue.append(msg)
 
