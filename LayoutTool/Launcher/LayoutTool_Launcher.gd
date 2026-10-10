@@ -25,8 +25,9 @@ func populate_slots():
 		print("--APAutoLauncher.json not found, auto launcher disabled--")
 		return
 	
-	for player in Counter.players:
-		slot_select.add_item(player["name"])
+	for setting in settings.slots:
+		if setting.slot in Counter.playerNames:
+			slot_select.add_item(setting["slot"])
 
 
 func _on_button_pressed() -> void:
