@@ -65,38 +65,39 @@ script = ExtResource("8_5smc4")
 layout_mode = 2
 
 [node name="Log" type="VBoxContainer" parent="HBoxContainer" unique_id=75163435]
-custom_minimum_size = Vector2(355, 0)
+custom_minimum_size = Vector2(267, 0)
 layout_mode = 2
 
 [node name="AnimatedLog" parent="HBoxContainer/Log" unique_id=208326658 instance=ExtResource("1_sh5xq")]
 layout_mode = 2
 size_flags_vertical = 3
+use_multiline = true
 
 [node name="Game+Timer" type="VBoxContainer" parent="HBoxContainer" unique_id=1801026429]
-custom_minimum_size = Vector2(1885, 0)
+custom_minimum_size = Vector2(1973, 0)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="HBoxContainer/Game+Timer" unique_id=195460058]
-custom_minimum_size = Vector2(1885, 1060)
+custom_minimum_size = Vector2(1973, 1110)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1qwco")
 
 [node name="BottomHalf" type="HBoxContainer" parent="HBoxContainer/Game+Timer" unique_id=480079489]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
 [node name="TrackerSpace" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf" unique_id=2020243085]
-custom_minimum_size = Vector2(1355, 0)
+custom_minimum_size = Vector2(1473, 0)
 layout_mode = 2
 
 [node name="Stats" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf" unique_id=1642887353]
-custom_minimum_size = Vector2(500, 10)
+custom_minimum_size = Vector2(471, 10)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 4
 
 [node name="VPadding" type="VBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf/Stats" unique_id=1364235708]
-custom_minimum_size = Vector2(0, 44)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="GlobalCounters" type="HBoxContainer" parent="HBoxContainer/Game+Timer/BottomHalf/Stats" unique_id=1571359389]
