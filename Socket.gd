@@ -7,8 +7,8 @@ const CONNECTION_COMMAND := '[{"cmd":"Connect","password":"{password}","game":"{
 signal updates_received(updates: Array[Update])
 
 var socket = WebSocketPeer.new()
-var url := ""
-var password := ""
+static var url := ""
+static var password := ""
 var room_info := {}
 var pending_packets := []
 

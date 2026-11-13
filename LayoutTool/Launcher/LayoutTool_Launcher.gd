@@ -39,7 +39,7 @@ func _on_button_pressed() -> void:
 		match action["action"]:
 			"Command":
 				powershell_command([action["command"]])
-			
+				
 			"Launch":
 				var file_path: String = action["path"]
 				var file := file_path.get_file()
@@ -81,8 +81,14 @@ func _on_button_pressed() -> void:
 				var file := ""
 				for _file in files:
 					if _file.get_extension() == extension:
-						file = _file
-						break
+						if extension == "apmanual":
+							var manual_name: String = action["manual_name"]
+							if manual_name in _file.get_basename():
+								file = _file
+								break
+						else:
+							file = _file
+							break
 				
 				if file == "":
 					print("No file with extension " + extension + " found in directory " + directory)
@@ -98,9 +104,18 @@ func _on_button_pressed() -> void:
 
 
 func powershell_command(commands: Array[String]):
+	var command_separator := ";" if OS.get_name() == "Windows" else "&&"
+	var final_command := command_separator.join(commands)
+	var command_template := final_command
+	if "[AP_SERVER]" in final_command or "[AP_PASSWORD]" in final_command:
+		var connection_data := Counter.settings.archipelago_connection_data
+		if "[AP_SERVER]" in final_command:
+			final_command = final_command.replace("[AP_SERVER]", str(connection_data["url"]).substr(6))
+		if "[AP_PASSWORD]" in final_command:
+			final_command = final_command.replace("[AP_PASSWORD]", str(connection_data["password"]))
+
 	match OS.get_name():
 		"Windows":
-			var final_command = ";".join(commands)
 			var output := []
 			var exit_code = OS.create_process(
 				"powershell.exe",
@@ -111,7 +126,6 @@ func powershell_command(commands: Array[String]):
 			print("Output: ", output)
 			print("Final command: ", final_command)
 		_:
-			var final_command = "&&".join(commands)
 			OS.create_process("bash", ["-c", final_command])
 
 
