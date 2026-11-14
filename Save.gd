@@ -50,17 +50,21 @@ static func load() -> Save:
 	
 	return save
 
+func truncate_timers() -> void:
+	timer = floor(timer)
+	for game in game_timer.keys():
+		game_timer[game] = floor(game_timer[game])
+
 func save():
 	var log_data := []
 	for log_message in log:
 		log_data.append(log_message.to_json())
-		
-	for game in game_timer.keys():
-		game_timer[game] = floor(game_timer[game])
+
+	truncate_timers()
 	
 	# Save current timer and timestamp to disk
 	var save_data := {
-		"timer": floor(timer),
+		"timer": timer,
 		"log": log_data,
 		"starting_time": starting_time,
 		"generated_version": version,

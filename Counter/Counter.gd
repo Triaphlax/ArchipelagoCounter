@@ -212,6 +212,7 @@ func update_received(update: Socket.Update):
 			active_player_changed.emit(active_players)
 		elif up.update_type == Socket.Update_Player.Player_Update_Type.Part:
 			active_players.erase(up.slot)
+			save.truncate_timers()
 			if len(active_players) == 1:
 				normal_connections_again.emit()
 				return
@@ -220,6 +221,7 @@ func update_received(update: Socket.Update):
 	elif update is Socket.Update_Goal:
 		# Pause timer when goal is completed for a game
 		active_players.erase(update.slot)
+		save.truncate_timers()
 		active_player_changed.emit(active_players)
 	
 	if update is Socket.Update_Item:
