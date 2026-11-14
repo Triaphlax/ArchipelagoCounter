@@ -219,10 +219,15 @@ func update_received(update: Socket.Update):
 			active_player_changed.emit(active_players)
 			flush_save()
 	elif update is Socket.Update_Goal:
-		# Pause timer when goal is completed for a game
-		active_players.erase(update.slot)
-		save.truncate_timers()
-		active_player_changed.emit(active_players)
+		var slot_name := get_slot_from_id(update.slot)
+		if slot_name not in save.goal_times:
+			var timezone := Time.get_time_zone_from_system()
+			save.goal_times[slot_name] = {
+				"global_timer": floor(save.timer),
+				"game_timer": floor(save.game_timer.get(slot_name, 0.0)),
+				"timestamp": Time.get_datetime_string_from_system() + Time.get_offset_string_from_offset_minutes(timezone["bias"])
+			}
+		flush_save()
 	
 	if update is Socket.Update_Item:
 		var ui := update as Socket.Update_Item

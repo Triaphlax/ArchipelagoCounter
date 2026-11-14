@@ -9,6 +9,7 @@ var log: Array[LogMessage] = []
 var version: String = ProjectSettings.get_setting("application/config/version")
 var starting_time := 0.0
 var game_timer := {}
+var goal_times := {}
 var notes := {}
 
 static func save_file(file_name: String, data: Dictionary) -> void:
@@ -40,6 +41,7 @@ static func load() -> Save:
 	save.starting_time = save_data.get("starting_time", Time.get_unix_time_from_system())
 	save.version = save_data.get("generated_version", ProjectSettings.get("application/config/version"))
 	save.game_timer = save_data.get("game_timer", {})
+	save.goal_times = save_data.get("goal_times", {})
 	save.notes = save_data.get("notes", {})
 	
 	var log_data: Array = save_data.get("log", [])
@@ -69,6 +71,7 @@ func save():
 		"starting_time": starting_time,
 		"generated_version": version,
 		"game_timer": game_timer,
+		"goal_times": goal_times,
 		"notes": notes
 	}
 	
