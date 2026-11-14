@@ -30,3 +30,10 @@ mono_crash.*.json
 *.json
 
 /Backups/
+
+# Local tool and game files
+/OpenKh.Tools.ModsManager.log
+/astralathe.log
+/astralathe_mods.txt
+/migrated.txt
+/steam_appid.txt
