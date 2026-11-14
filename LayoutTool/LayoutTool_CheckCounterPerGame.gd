@@ -26,11 +26,20 @@ func update_text(checks: int, total_checks: int):
 	var percent := str((float(checks) / float(total_checks)) * 100)
 	percent = percent.pad_zeros(2)
 	percent = percent.pad_decimals(2)
+
+	var full_game_name: String = Counter.settings.games.get(game, game)
+	match game:
+		"OoT":
+			full_game_name = "Ocarina of Time"
+		"MonkeyBall":
+			full_game_name = "Monkeyed Ball 2: Witty Subtitle"
+		"SRCW":
+			full_game_name = "Sonic Racing CrossWorlds"
 	
 	#var cpm := str(60.0 * (float(checks) / Counter.save.timer))
 	#cpm = cpm.pad_decimals(4)
 	
-	text = text_format.format([checks, total_checks, game])
+	text = text_format.format([checks, total_checks, game, full_game_name])
 
 func change_game(active_players: Array):
 	var player_count = active_players.size()

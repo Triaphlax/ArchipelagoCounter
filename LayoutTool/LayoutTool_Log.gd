@@ -3,6 +3,7 @@ extends PanelContainer
 
 @export var label: RichTextLabel
 @export var print_excluded_locations := false
+@export_multiline var initial_text := ""
 @export_multiline var message_template := \
 	"[b][color=#{sender_color}]{sender}[/color][/b] sent " + \
 	"{bold_tag_start}[color=#{item_color}]{item}[/color]{bold_tag_end} to [b]{receiver}[/b] " + \
@@ -62,4 +63,4 @@ func print_item(log_message: LogMessage_Item):
 
 
 func _draw() -> void:
-	label.text = full_text
+	label.text = initial_text if full_text.is_empty() else full_text

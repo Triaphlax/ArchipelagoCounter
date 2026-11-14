@@ -22,14 +22,17 @@ func update():
 func update_text(game: String, checks: int, total_checks: int):
 	var total_checks_digits := len(str(total_checks))
 	var checks_str := str(checks).pad_zeros(total_checks_digits)
-	var percent := str((float(checks) / float(total_checks)) * 100)
-	percent = percent.pad_zeros(2)
-	percent = percent.pad_decimals(2)
+	var total_checks_str := str(total_checks).pad_zeros(total_checks_digits)
+	var percentage_hundredths := 0
+	if total_checks > 0:
+		percentage_hundredths = roundi(float(checks) / float(total_checks) * 10000.0)
+	var percent := str(int(percentage_hundredths / 100)).pad_zeros(3)
+	percent += ".{0}".format([str(percentage_hundredths % 100).pad_zeros(2)])
 	
 	#var cpm := str(60.0 * (float(checks) / Counter.save.timer))
 	#cpm = cpm.pad_decimals(4)
 	var game_time := 0
 	if game in Counter.save.game_timer.keys():
 		game_time = Counter.save.game_timer[game]
-	text = text_format.format([checks, total_checks, percent, Utils.seconds_to_hms(game_time)])
+	text = text_format.format([checks_str, total_checks_str, percent, Utils.seconds_to_hms(game_time)])
 		

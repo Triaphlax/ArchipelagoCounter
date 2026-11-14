@@ -28,7 +28,7 @@ shader_parameter/contrast = 0.7
 
 [sub_resource type="LabelSettings" id="LabelSettings_12wmw"]
 font = ExtResource("2_t5cvu")
-font_size = 26
+font_size = 22
 shadow_color = Color(0, 0, 0, 0.7019608)
 shadow_offset = Vector2(2, 2)
 
@@ -57,9 +57,18 @@ alignment = 2
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
-[node name="GameName" type="Label" parent="HBoxContainer" unique_id=1044160633]
+[node name="GameNameArea" type="Control" parent="HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
+
+[node name="GameName" type="Label" parent="HBoxContainer/GameNameArea" unique_id=1044160633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+clip_text = true
 text = "[Game name]"
 label_settings = SubResource("LabelSettings_12wmw")
 vertical_alignment = 1

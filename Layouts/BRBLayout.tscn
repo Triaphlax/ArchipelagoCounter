@@ -6,11 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://c5empkuku1n2t" path="res://LayoutTool/PendingItems/LayoutTool_PendingItems.tscn" id="4_3d06i"]
 [ext_resource type="FontFile" uid="uid://cdkhdgy8yaj4p" path="res://UI/Roboto-Bold.ttf" id="4_gccbt"]
 [ext_resource type="PackedScene" uid="uid://caxcm1wbgn0i3" path="res://LayoutTool/GameProgress/LayoutTool_GameProgress.tscn" id="6_wfqdp"]
+[ext_resource type="Script" uid="uid://0l21ip80m8v4" path="res://LayoutTool/LayoutTool_CheckCounterPerGame.gd" id="9_2677c"]
+[ext_resource type="Script" uid="uid://chn0o4excpugo" path="res://LayoutTool/LayoutTool_AdvancedTimer.gd" id="10_tfsgp"]
 [ext_resource type="Script" uid="uid://bhmo5b5dm0x52" path="res://LayoutTool_TooManyConnections.gd" id="11_ecm3m"]
-[ext_resource type="Script" uid="uid://bbhvigrs7yh4t" path="res://LayoutTool/LayoutTool_CheckCounterAdvanced.gd" id="13_eqmnl"]
+[ext_resource type="Script" uid="uid://dge62fjj66m10" path="res://LayoutTool/LayoutTool_CheckCounter.gd" id="13_eqmnl"]
 [ext_resource type="Script" uid="uid://uf4ckcqtqd57" path="res://LayoutTool/LayoutTool_RunTimer.gd" id="21_1kbda"]
 [ext_resource type="Texture2D" uid="uid://d0gdsh0kp33f8" path="res://Confetti.png" id="23_4vrqj"]
 [ext_resource type="Script" uid="uid://qvhxxnmnkmel" path="res://LayoutTool/LayoutTool_CompletionParticle.gd" id="24_k6vjj"]
+[ext_resource type="Script" uid="uid://dee66ntuomcg4" path="res://LayoutTool/LayoutTool_TotalChecksProgress.gd" id="25_total_checks_progress"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oohc0"]
 content_margin_left = 6.0
@@ -23,14 +26,48 @@ font_size = 24
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fu3g7"]
 bg_color = Color(1, 1, 1, 0.039215688)
 
-[sub_resource type="LabelSettings" id="LabelSettings_xoxj5"]
-line_spacing = 0.0
+[sub_resource type="LabelSettings" id="LabelSettings_ConnectedTo"]
 font_size = 21
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_TotalChecksProgressBorder"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.55, 0.55, 0.55, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_TotalChecksProgressBackground"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_TotalChecksProgressFill"]
+bg_color = Color(0.07167991, 0.84, 0.016799983, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_TotalChecks"]
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_aktel"]
 font = ExtResource("4_gccbt")
 font_size = 48
 font_color = Color(0.07167991, 0.84, 0.016799983, 1)
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wygh"]
+font_size = 39
+
+[sub_resource type="LabelSettings" id="LabelSettings_63p2b"]
+font = ExtResource("4_gccbt")
+font_size = 48
+font_color = Color(0, 0.50980395, 0.79607844, 1)
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(-2, 2)
 
@@ -96,13 +133,33 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_oohc0")
 script = ExtResource("2_1uph0")
 label = NodePath("RichTextLabel")
+initial_text = "Sample log entry 01
+Sample log entry 02
+Sample log entry 03
+Sample log entry 04
+Sample log entry 05
+Sample log entry 06
+Sample log entry 07
+Sample log entry 08
+Sample log entry 09
+Sample log entry 10"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/LogContainer" unique_id=1284570937]
 layout_mode = 2
 theme_override_constants/paragraph_separation = 4
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
+text = "Sample log entry 01
+Sample log entry 02
+Sample log entry 03
+Sample log entry 04
+Sample log entry 05
+Sample log entry 06
+Sample log entry 07
+Sample log entry 08
+Sample log entry 09
+Sample log entry 10"
 scroll_following = true
 vertical_alignment = 2
 
@@ -130,32 +187,93 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.55
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=483834115]
+[node name="ConnectionStats" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=483834115]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="TotalChecks" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=272831666]
+[node name="Global" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ConnectionStats" unique_id=1307045931]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TotalChecksHeading" type="Label" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global" unique_id=194103331]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
-text = "Total Checks
-0625/1299"
-label_settings = SubResource("LabelSettings_xoxj5")
+text = "Total Checks:"
+label_settings = SubResource("LabelSettings_ConnectedTo")
+horizontal_alignment = 1
+
+[node name="TotalChecksProgressMargin" type="MarginContainer" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global" unique_id=1826553243]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="TotalChecksProgressBorder" type="PanelContainer" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global/TotalChecksProgressMargin" unique_id=840504924]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_TotalChecksProgressBorder")
+
+[node name="TotalChecksProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global/TotalChecksProgressMargin/TotalChecksProgressBorder" unique_id=1143942006]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_TotalChecksProgressBackground")
+theme_override_styles/fill = SubResource("StyleBoxFlat_TotalChecksProgressFill")
+value = 20.0
+show_percentage = false
+script = ExtResource("25_total_checks_progress")
+
+[node name="TotalChecks" type="Label" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global" unique_id=272831666]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00000 / 00000 (00.0%)"
+label_settings = SubResource("LabelSettings_TotalChecks")
 horizontal_alignment = 1
 script = ExtResource("13_eqmnl")
-text_format = "Total Checks
-{0}/{1} ({2}%)
-{3} cpm"
+text_format = "{0} / {1} ({2}%)"
 
-[node name="RunTimer" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1142855615]
+[node name="GlobalTimerSpacer" type="Control" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global" unique_id=505306959]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="RunTimer" type="Label" parent="VBoxContainer/HBoxContainer/ConnectionStats/Global" unique_id=1142855615]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 6
 text = "00:00:00"
 label_settings = SubResource("LabelSettings_aktel")
 horizontal_alignment = 1
 script = ExtResource("21_1kbda")
+
+[node name="PerGame" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/ConnectionStats" unique_id=586356449]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ConnectedTo" type="Label" parent="VBoxContainer/HBoxContainer/ConnectionStats/PerGame" unique_id=525191532]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Connected to:"
+label_settings = SubResource("LabelSettings_ConnectedTo")
+horizontal_alignment = 1
+
+[node name="ChecksForGame" type="Label" parent="VBoxContainer/HBoxContainer/ConnectionStats/PerGame" unique_id=1077892383]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Game"
+label_settings = SubResource("LabelSettings_1wygh")
+horizontal_alignment = 1
+script = ExtResource("9_2677c")
+text_format = "{3}"
+metadata/_custom_type_script = "uid://0l21ip80m8v4"
+
+[node name="AdvancedTimer" type="Label" parent="VBoxContainer/HBoxContainer/ConnectionStats/PerGame" unique_id=1585768932]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_63p2b")
+horizontal_alignment = 1
+script = ExtResource("10_tfsgp")
 
 [node name="Confetti" type="GPUParticles2D" parent="." unique_id=804432263]
 material = SubResource("CanvasItemMaterial_k6vjj")
