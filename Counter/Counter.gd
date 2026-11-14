@@ -26,6 +26,7 @@ var total_game_checks: Dictionary[String, int] = {}
 var save: Save
 
 var active_players: Array = []
+var timers_paused := false
 
 var checksums := {}
 var playerNames: Array = []
@@ -40,7 +41,7 @@ var game_lookup: Dictionary[int, String] = {}
 
 
 func _process(delta: float) -> void:
-	if len(active_players) > 0:
+	if len(active_players) > 0 and not timers_paused:
 		save.timer += delta
 		
 		for player in active_players:
@@ -50,6 +51,10 @@ func _process(delta: float) -> void:
 			save.game_timer[game] += delta
 		
 		timer_update.emit()
+
+
+func pause_timers() -> void:
+	timers_paused = true
 
 
 func _ready():
