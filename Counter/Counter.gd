@@ -26,6 +26,7 @@ var total_game_checks: Dictionary[String, int] = {}
 var save: Save
 
 var active_players: Array = []
+var global_timer_started := false
 var timers_paused := false
 
 var checksums := {}
@@ -41,20 +42,26 @@ var game_lookup: Dictionary[int, String] = {}
 
 
 func _process(delta: float) -> void:
-	if len(active_players) > 0 and not timers_paused:
+	if timers_paused:
+		return
+	var timer_updated := false
+	if global_timer_started:
 		save.timer += delta
-		
+		timer_updated = true
+	if len(active_players) > 0:
 		for player in active_players:
 			var game := get_slot_from_id(player)
 			if game not in save.game_timer:
 				save.game_timer[game] = 0.0
 			save.game_timer[game] += delta
-		
+		timer_updated = true
+	if timer_updated:
 		timer_update.emit()
 
 
 func pause_timers() -> void:
 	timers_paused = true
+	flush_save()
 
 
 func _ready():
@@ -197,6 +204,7 @@ func update_received(update: Socket.Update):
 	if update is Socket.Update_Player:
 		var up := update as Socket.Update_Player
 		if up.update_type == Socket.Update_Player.Player_Update_Type.Join:
+			global_timer_started = true
 			active_players.append(up.slot)
 			if len(active_players) > 1:
 				too_many_connections.emit()
