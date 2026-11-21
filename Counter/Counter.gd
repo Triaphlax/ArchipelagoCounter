@@ -205,6 +205,9 @@ func update_received(update: Socket.Update):
 		var up := update as Socket.Update_Player
 		if up.update_type == Socket.Update_Player.Player_Update_Type.Join:
 			global_timer_started = true
+			var slot_name := get_slot_from_id(up.slot)
+			var global_fraction: float = save.timer - floor(save.timer)
+			save.game_timer[slot_name] = floor(save.game_timer.get(slot_name, 0.0)) + global_fraction
 			active_players.append(up.slot)
 			if len(active_players) > 1:
 				too_many_connections.emit()
